@@ -7,10 +7,15 @@ from datetime import datetime, timezone
 import httpx
 from fastapi import HTTPException
 
-from bot.bhiss_collector import download_nfse_xml, query_nfse
+from bot.bhiss_collector import check_source_errors, download_nfse_xml, query_nfse
 from bot.nfse_extractor import extract_nfse_data
 
-from api.metrics import nfse_queries_total, nfse_query_duration_seconds
+from api.metrics import (
+    captcha_result_total,
+    captcha_solve_duration_seconds,
+    nfse_queries_total,
+    nfse_query_duration_seconds,
+)
 from api.models.nfse import (
     ExtractedField,
     NfseQueryRequest,
@@ -18,6 +23,15 @@ from api.models.nfse import (
     QueryMetadata,
     SourceData,
 )
+
+SOURCE_NAME = "BHISS Digital"
+
+SOURCE_ERROR_STATUS_CODES = {
+    "not_found": 404,
+    "missing_field": 422,
+    "captcha_rejected": 502,
+    "session_expired": 502,
+}
 
 
 async def fetch_nfse_data(payload: NfseQueryRequest) -> NfseQueryResponse:
@@ -40,17 +54,27 @@ async def _query_and_extract(payload: NfseQueryRequest, request_id: str) -> Nfse
     timestamp = datetime.now(timezone.utc)
 
     async with httpx.AsyncClient() as client:
-        exibicao_response = await query_nfse(
+        query_result = await query_nfse(
             client,
             payload.provider_cnpj,
             payload.nfse_number,
             payload.verification_code,
             request_id,
         )
-        exibicao_html = exibicao_response.text
+        captcha_solve_duration_seconds.observe(query_result.captcha_duration_seconds)
+        exibicao_html = query_result.response.text
 
-        if "exibicaoNFS-e" not in str(exibicao_response.url):
-            raise HTTPException(status_code=404, detail="NFS-e nao encontrada")
+        source_error = check_source_errors(exibicao_html)
+        if source_error is not None:
+            status, message = source_error
+            captcha_result_total.labels(
+                result="rejected" if status == "captcha_rejected" else "accepted"
+            ).inc()
+            raise HTTPException(
+                status_code=SOURCE_ERROR_STATUS_CODES.get(status, 502),
+                detail={"source": SOURCE_NAME, "message": message},
+            )
+        captcha_result_total.labels(result="accepted").inc()
 
         xml_text = await download_nfse_xml(client, exibicao_html, request_id)
 

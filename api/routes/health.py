@@ -1,13 +1,16 @@
 import httpx
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 
 from bot.bhiss_collector import BASE_URL, BROWSER_HEADERS
+
+from api.rate_limit import limiter
 
 router = APIRouter(tags=["observability"])
 
 
 @router.get("/health")
-async def health() -> dict:
+@limiter.limit("30/minute")
+async def health(request: Request) -> dict:
     bhiss_status = "ok"
     try:
         async with httpx.AsyncClient(timeout=5.0, follow_redirects=True) as client:

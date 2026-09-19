@@ -19,5 +19,6 @@ def test_segment_image_returns_five_digit_crops():
 def test_solve_matches_label_for_all_held_out_samples():
     for sample_name in HELD_OUT_SAMPLES:
         image_bytes = (SAMPLES_DIR / f"{sample_name}.jpg").read_bytes()
-        result = solve(image_bytes, request_id="test")
+        result, duration_seconds = solve(image_bytes, request_id="test")
         assert result == SAMPLE_LABELS[sample_name], f"falhou em {sample_name}"
+        assert duration_seconds > 0

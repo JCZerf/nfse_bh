@@ -1,7 +1,9 @@
+import html
 import logging
 import re
 import sys
 from pathlib import Path
+from typing import NamedTuple
 
 import httpx
 
@@ -10,6 +12,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from captcha_solver.solver import solve as solve_captcha
 
 logger = logging.getLogger(__name__)
+
+
+class QueryResult(NamedTuple):
+    response: httpx.Response
+    captcha_duration_seconds: float
 
 BASE_URL = "https://bhissdigital.pbh.gov.br/nfse"
 QUERY_PAGE_URL = f"{BASE_URL}/pages/consultaNFS-e_cidadao.jsf"
@@ -20,6 +27,10 @@ VIEW_STATE_PATTERN = re.compile(
     r'javax\.faces\.ViewState" id="javax\.faces\.ViewState" value="([^"]+)"'
 )
 DOWNLOAD_BUTTON_PATTERN = re.compile(r'bt_download\.gif" name="(form:[\w-]+)"')
+FIELD_ERROR_PATTERN = re.compile(r'class="mensagenserro">([^<]+)</li>')
+NOT_FOUND_PATTERN = re.compile(r'style="alerta">([^<]+)</li>')
+SESSION_EXPIRED_MARKER = "Sess&atilde;o Expirada"
+CAPTCHA_ERROR_MARKER = "imagem de seguran"
 
 BROWSER_HEADERS = {
     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
@@ -45,6 +56,25 @@ def extract_view_state(page_html: str) -> str:
     return match.group(1)
 
 
+def check_source_errors(response_text: str) -> tuple[str, str] | None:
+    """Extrai (status, mensagem) de um erro conhecido reportado pela fonte, ou None se nao houver."""
+    if SESSION_EXPIRED_MARKER in response_text:
+        return "session_expired", "Sessao expirada"
+
+    field_error_match = FIELD_ERROR_PATTERN.search(response_text)
+    if field_error_match:
+        message = html.unescape(field_error_match.group(1)).strip()
+        if CAPTCHA_ERROR_MARKER in message:
+            return "captcha_rejected", message
+        return "missing_field", message
+
+    not_found_match = NOT_FOUND_PATTERN.search(response_text)
+    if not_found_match:
+        return "not_found", html.unescape(not_found_match.group(1)).strip()
+
+    return None
+
+
 async def fetch_captcha(client: httpx.AsyncClient, request_id: str) -> bytes:
     logger.info("[%s] GET captcha", request_id)
     response = await client.get(CAPTCHA_URL, headers=BROWSER_HEADERS)
@@ -58,14 +88,14 @@ async def query_nfse(
     nfse_number: str,
     verification_code: str,
     request_id: str,
-) -> httpx.Response:
+) -> QueryResult:
     page_html = await fetch_query_page(client, request_id)
     view_state = extract_view_state(page_html)
 
     captcha_bytes = await fetch_captcha(client, request_id)
-    captcha_response = solve_captcha(captcha_bytes, request_id)
+    captcha_response, captcha_duration_seconds = solve_captcha(captcha_bytes, request_id)
 
-    return await submit_query(
+    response = await submit_query(
         client,
         provider_cnpj,
         nfse_number,
@@ -74,6 +104,7 @@ async def query_nfse(
         view_state,
         request_id,
     )
+    return QueryResult(response=response, captcha_duration_seconds=captcha_duration_seconds)
 
 
 def extract_download_button_name(exibicao_html: str) -> str:
