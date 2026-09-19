@@ -16,6 +16,7 @@ dependencies = [
     "beautifulsoup4>=4.14.3",
     "opencv-python>=4.13.0",
     "numpy>=2.4.4",
+    "prometheus-client>=0.26.0",
 ]
 
 [project.optional-dependencies]

@@ -1,5 +1,6 @@
 import base64
 import dataclasses
+import time
 import uuid
 from datetime import datetime, timezone
 
@@ -9,6 +10,7 @@ from fastapi import HTTPException
 from bot.bhiss_collector import download_nfse_xml, query_nfse
 from bot.nfse_extractor import extract_nfse_data
 
+from api.metrics import nfse_queries_total, nfse_query_duration_seconds
 from api.models.nfse import (
     ExtractedField,
     NfseQueryRequest,
@@ -20,6 +22,21 @@ from api.models.nfse import (
 
 async def fetch_nfse_data(payload: NfseQueryRequest) -> NfseQueryResponse:
     request_id = uuid.uuid4().hex[:8]
+    started_at = time.perf_counter()
+
+    try:
+        response = await _query_and_extract(payload, request_id)
+    except Exception:
+        nfse_queries_total.labels(status="error").inc()
+        raise
+    else:
+        nfse_queries_total.labels(status="success").inc()
+        return response
+    finally:
+        nfse_query_duration_seconds.observe(time.perf_counter() - started_at)
+
+
+async def _query_and_extract(payload: NfseQueryRequest, request_id: str) -> NfseQueryResponse:
     timestamp = datetime.now(timezone.utc)
 
     async with httpx.AsyncClient() as client:
