@@ -26,20 +26,26 @@ def _normalize_whitespace(text: str) -> str:
     return " ".join(text.split())
 
 
-def _extract_html_value(soup: BeautifulSoup, label: str) -> str | None:
-    normalized_label = _normalize_whitespace(label)
-    label_span = soup.find(
-        "span",
-        class_="subTitulo",
-        string=lambda text: bool(text) and normalized_label in _normalize_whitespace(text),
-    )
-    if label_span is None:
-        return None
-    value_paragraph = label_span.find_next("p", class_="teste")
-    if value_paragraph is None:
-        return None
-    value = _normalize_whitespace(value_paragraph.get_text(strip=True))
-    return value or None
+def _build_html_label_index(soup: BeautifulSoup) -> dict[str, str]:
+    """Mapeia rotulo normalizado -> valor, percorrendo a arvore do HTML uma unica vez
+    em vez de um scan completo por campo (subTitulo/valor sao poucos, mas nao ha razao
+    pra refazer a mesma busca N vezes)."""
+    index: dict[str, str] = {}
+    for label_span in soup.find_all("span", class_="subTitulo"):
+        label_text = label_span.get_text()
+        if not label_text:
+            continue
+        value_paragraph = label_span.find_next("p", class_="teste")
+        if value_paragraph is None:
+            continue
+        normalized_label = _normalize_whitespace(label_text)
+        value = _normalize_whitespace(value_paragraph.get_text(strip=True))
+        index.setdefault(normalized_label, value)
+    return index
+
+
+def _extract_html_value(html_label_index: dict[str, str], label: str) -> str | None:
+    return html_label_index.get(_normalize_whitespace(label)) or None
 
 
 def _extract_description_after_slash(raw_value: str | None) -> str | None:
@@ -53,6 +59,7 @@ def _extract_description_after_slash(raw_value: str | None) -> str | None:
 def extract_nfse_data(xml_text: str, html_text: str) -> NfseData:
     root = ElementTree.fromstring(xml_text)
     soup = BeautifulSoup(html_text, "html.parser")
+    html_label_index = _build_html_label_index(soup)
 
     values: dict[str, str | None] = {}
     for data_field in dataclasses.fields(NfseData):
@@ -64,7 +71,7 @@ def extract_nfse_data(xml_text: str, html_text: str) -> NfseData:
         elif origin == "xml":
             values[data_field.name] = _extract_xml_value(root, path)
         else:
-            raw_value = _extract_html_value(soup, path)
+            raw_value = _extract_html_value(html_label_index, path)
             values[data_field.name] = _extract_description_after_slash(raw_value)
 
     return NfseData(**values)
