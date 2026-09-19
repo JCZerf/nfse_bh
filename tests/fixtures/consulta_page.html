@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<script src="/nfse/resources/scripts/json2.js"></script>
+<script type="text/javascript" src="/nfse/resources/scripts/lacuna-web-pki-2.5.0.min.js"></script>
+<script src="/nfse/a4j/g/3_3_0.GA/org/ajax4jsf/framework.pack.js.jsf" type="text/javascript"></script>
+<script src="/nfse/a4j/g/3_3_0.GA/org/richfaces/ui.pack.js.jsf" type="text/javascript"></script>
+<link class="component" href="/nfse/a4j/s/3_3_0.GAorg/richfaces/renderkit/html/css/basic_classes.xcss/DATB/eAGL-em0LnT5DGkAEz0D9Q__.jsf" rel="stylesheet" type="text/css" />
+<link class="component" href="/nfse/a4j/s/3_3_0.GAorg/richfaces/renderkit/html/css/extended_classes.xcss/DATB/eAGL-em0LnT5DGkAEz0D9Q__.jsf" media="rich-extended-skinning" rel="stylesheet" type="text/css" />
+<link class="component" href="/nfse/a4j/s/3_3_0.GA/org/richfaces/skin.xcss/DATB/eAGL-em0LnT5DGkAEz0D9Q__.jsf" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	window.RICH_FACES_EXTENDED_SKINNING_ON = true;
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="cache-control" content="private" />
+<title>Prefeitura de Belo Horizonte - Secretaria Municipal de Financas</title>
+<link rel="stylesheet" type="text/css" href="/nfse/resources/styles/AppStyle.css" />
+<link rel="stylesheet" type="text/css" href="/nfse/resources/styles/Skin.css" />
+<link rel="stylesheet" type="text/css" href="/nfse/resources/styles/AppStyleRichUpload.css" />
+<link rel="stylesheet" type="text/css" href="/nfse/resources/styles/pop.css" />
+<script src="/nfse/resources/scripts/webpki.js?984469328" type="text/javascript"></script>
+<script src="/nfse/resources/scripts/AppScript.js" type="text/javascript"></script>
+<script src="/nfse/resources/scripts/jquery-1.12.0.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/nfse/resources/scripts/jquery.blockUI.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/nfse/resources/scripts/jquery-ui-1.11.4.min.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="/nfse/resources/styles/jquery-ui.css" charset="utf-8" />
+<script src="/nfse/resources/scripts/jquery-migrate-1.3.0.min.js" type="text/javascript"></script>
+<script src="/nfse/resources/scripts/jquery.maskedinput-1.1.4.pack.js" type="text/javascript"></script>
+<script src="/nfse/resources/scripts/jquery.numeric.pack.js" type="text/javascript"></script>
+<script src="/nfse/resources/scripts/jquery.floatnumber.js" type="text/javascript"></script>
+<script src="/nfse/resources/scripts/json-reset.js" type="text/javascript"></script>
+<script type="text/javascript">
+	jQuery.noConflict();
+</script>
+
+</head>
+
+        <body id="producao" onload="refreshCaptcha()">
+
+            <div id="container">
+<form id="menu" name="menu" method="post" action="/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="menu" value="menu" />
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"><span id="menu:nfse_panel_externo">
+		<div id="header">
+			<a href="http://www.pbh.gov.br/bhissdigital/">
+				<img src="/nfse/resources/images/bt_bhiss-digital.png" alt="Portal BHISS Digital" width="85" height="34" border="0" id="voltarPortal" />
+			</a> <a name="Ancora"></a> <a href="/nfse/"> <img src="/nfse/resources/images/img_logo_notafiscal.gif" alt="Nota Fical de Servicos Eletronica" border="0" /> <img src="/nfse/resources/images/topo_teste.png" width="295" height="42" alt="TESTE" id="topHomologacao" />
+			</a>
+			<div id="nav">
+
+				<div class="itemMenu" onmouseout="out(1);MM_swapImgRestore()" onmouseover="over(1);MM_swapImage('consulta','','/nfse/resources/images/menu_consulta_over.png',1)">
+					<a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('consulta','','/nfse/resources/images/menu_consulta_over.png',1)"><img src="/nfse/resources/images/menu_consulta.png" alt="Consulta" name="consulta" width="82" height="19" border="0" id="consulta" /> </a>
+
+					<div class="subMenu" id="s1">
+						<!-- 
+                            <a
+                                href="javascript:window.document.getElementById('menu:bt_gerar_lote').click()">Gera
+                                Lote NFS-e</a> -->
+						<a href="javascript:window.document.getElementById('menu:bt_consulta_nfse_cidadao').click()">Consulta
+							do Tomador</a> <a href="javascript:window.document.getElementById('menu:bt_consulta_cidadao_rps').click()">Consulta
+							de RPSE</a>
+					</div>
+				</div>
+
+				<div id="data" style="font-weight: bold;">S&aacute;bado, 19 de Setembro de 2026
+				</div>
+
+				<!--fim nav-->
+			</div>
+
+			<!-- fim #header -->
+		</div><input id="menu:podeIR" type="hidden" name="menu:podeIR" value="true" /></span>
+</html>
+                    <div style="visibility: hidden; position: absolute;"><input id="menu:bt_emissao" name="menu:bt_emissao" onclick="A4J.AJAX.Submit('_viewRoot','menu',event,{'ignoreDupResponses':true,'implicitEventsQueue':'menu:bt_emissao','oncomplete':function(request,event,data){javascript:Richfaces.showModalPanel('MesReferenciaModalPanelSubview:panelMesReferencia', {top:30});},'similarityGroupingId':'menu:bt_emissao','parameters':{'menu:bt_emissao':'menu:bt_emissao'} ,'actionUrl':'/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1'} );return false;" type="button" /><input id="menu:bt_consulta_nfse_prestador" name="menu:bt_consulta_nfse_prestador" onclick="A4J.AJAX.Submit('_viewRoot','menu',event,{'ignoreDupResponses':true,'implicitEventsQueue':'menu:bt_consulta_nfse_prestador','similarityGroupingId':'menu:bt_consulta_nfse_prestador','parameters':{'menu:bt_consulta_nfse_prestador':'menu:bt_consulta_nfse_prestador'} ,'actionUrl':'/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1'} );return false;" type="button" /><input id="menu:bt_consulta_nfse_cidadao" type="submit" name="menu:bt_consulta_nfse_cidadao" value="" /><input id="menu:bt_consulta_lote" type="submit" name="menu:bt_consulta_lote" value="" /><input id="menu:bt_consulta_situacao_lote" type="submit" name="menu:bt_consulta_situacao_lote" value="" /><input id="menu:bt_cancelamento" type="submit" name="menu:bt_cancelamento" value="" /><input id="menu:bt_consulta_nfse_auditor" type="submit" name="menu:bt_consulta_nfse_auditor" value="" /><input id="menu:bt_envio_lote" type="submit" name="menu:bt_envio_lote" value="" /><input id="menu:bt_atualiza_logotipo" type="submit" name="menu:bt_atualiza_logotipo" value="" /><input id="menu:bt_atualiza_telefone" type="submit" name="menu:bt_atualiza_telefone" value="" /><input id="menu:bt_atualiza_email" type="submit" name="menu:bt_atualiza_email" value="" /><input id="menu:bt_atualiza_parametros" type="submit" name="menu:bt_atualiza_parametros" value="" /><input id="menu:bt_permissao_emissao_nfse" type="submit" name="menu:bt_permissao_emissao_nfse" value="" /><input id="menu:bt_consulta_xml" type="submit" name="menu:bt_consulta_xml" value="" /><input id="menu:bt_consulta_relatorio" type="submit" name="menu:bt_consulta_relatorio" value="" /><input id="menu:bt_gerar_relatorio_contagem" type="submit" name="menu:bt_gerar_relatorio_contagem" value="" /><input id="menu:bt_gerar_relatorio_financeiro" type="submit" name="menu:bt_gerar_relatorio_financeiro" value="" /><input id="menu:bt_gerar_relatorio_contagem_novo" type="submit" name="menu:bt_gerar_relatorio_contagem_novo" value="" /><input id="menu:bt_consulta_cidadao_rps" type="submit" name="menu:bt_consulta_cidadao_rps" value="" /><input id="menu:bt_cadastro_regra_excecao" type="submit" name="menu:bt_cadastro_regra_excecao" value="" /><input id="menu:bt_retorno_nfse_ambiente" type="submit" name="menu:bt_retorno_nfse_ambiente" value="" />
+                    </div><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id1" />
+</form><?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+		<div id="mainContent">
+			<!-- 
+			<div align="right">
+			<a href="/nfse/pages/security/login.jsp" style="border: 0px; margin-top: -20px;">
+			<img
+				src="/nfse/resources/images/bt_autenticacao.png"
+				alt="Área Restrita" border='0' />
+			</a>
+			</div>
+			 -->
+			<img src="/nfse/resources/images/tit_consulta_tomador.gif" alt="Consulta " /><?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<!--  INVOCADO SEMPRE QUANDO EXECUTANDO REQUISICAO AJAX --><span id="_viewRoot:status"><span id="_viewRoot:status.start" style="display: none"></span><script type="text/javascript">
+window.document.getElementById('_viewRoot:status.start').onstart=function(){Richfaces.showModalPanel('ajaxLoadingModalBox',{width:300, top:200});};
+</script><span id="_viewRoot:status.stop"></span><script type="text/javascript">
+window.document.getElementById('_viewRoot:status.stop').onstop=function(){Richfaces.hideModalPanel('ajaxLoadingModalBox');};
+</script></span><div id="ajaxLoadingModalBox" style="display: none;"><input id="ajaxLoadingModalBoxOpenedState" name="ajaxLoadingModalBoxOpenedState" type="hidden" /><div class="rich-modalpanel " id="ajaxLoadingModalBoxContainer" style="position: absolute; display: none; z-index: 2000; background-color: inherit;"><div class="dr-mpnl-mask-div dr-mpnl-mask-div-opaque rich-mpnl-mask-div" id="ajaxLoadingModalBoxDiv" style="z-index: 1;"><button class="dr-mpnl-pnl-button" id="ajaxLoadingModalBoxFirstHref"></button></div><div class="dr-mpnl-panel rich-mpnl_panel"><div id="ajaxLoadingModalBoxCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;"><div class="dr-mpnl-shadow rich-mpnl-shadow" id="ajaxLoadingModalBoxShadowDiv"></div><div class="dr-mpnl-ovf-hd dr-mpnl-trim dr-mpnl-pnl rich-mp-content" id="ajaxLoadingModalBoxContentDiv"><table border="0" cellpadding="0" cellspacing="0" id="ajaxLoadingModalBoxContentTable" style="height: 100%; width: 100%;"><tr style="height: 99%"><td class="dr-mpnl-pnl-b rich-mpnl-body" valign="top">
+		<div align="center">Processando ...
+			<br /><img src="/nfse/resources/images/ajax-loader.gif;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1" />
+		</div></td></tr></table></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxResizerN" style="width: 40px; height: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxResizerE" style="height: 40px; width: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxResizerS" style="width: 40px; height: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxResizerW" style="height: 40px; width: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxResizerNWU" style="width: 40px; height: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxResizerNEU" style="height: 40px; width: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxResizerNEL" style="width: 40px; height: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxResizerSEU" style="height: 40px; width: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxResizerSEL" style="width: 40px; height: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxResizerSWL" style="height: 40px; width: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxResizerSWU" style="width: 40px; height: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxResizerNWL" style="height: 40px; width: 4px;"></div></div></div><div class="dr-mpnl-mask-div dr-mpnl-mask-div-transparent rich-mpnl-mask-div" id="ajaxLoadingModalBoxCursorDiv" style="z-index: -200;"><button class="dr-mpnl-pnl-button" id="ajaxLoadingModalBoxLastHref"></button></div><script type="text/javascript">new ModalPanel('ajaxLoadingModalBox',
+				{
+					width: 300,
+					height: 50,
+
+					minWidth: -1,
+					minHeight: -1,
+
+					resizeable: true,
+					moveable: true,
+
+					left: "auto",
+					top: "auto",
+
+					zindex: 2000,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow: '',onbeforehide: '',
+					domElementAttachment: "",				
+					keepVisualState: false,
+					showWhenRendered: false,
+					selectBehavior: "disable",
+
+					autosized: false});</script></div><script type="text/javascript"></script></div><span id="mensagensRefreshArea"></span>
+</html>
+<form id="form" name="form" method="post" action="/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1" enctype="application/x-www-form-urlencoded" onkeypress="return bloqueiaEnter(event);">
+<input type="hidden" name="form" value="form" />
+
+
+				<!-- FORM -->
+			<table width="99%" border="0" cellspacing="10" cellpadding="4" class="textoConteudo" style="margin: 0 0 0 5px;">
+							<tr>
+								<td colspan="4" style="padding: 3px 0 3px 4px;">
+									<span class="camposObrigatorios"><img src="/nfse/resources/images/ico_obrigatorio.png" alt="Obrigatrio" width="11" height="10" /> CAMPOS DE PREENCHIMENTO OBRIGAT&Oacute;RIO</span>
+								</td>
+							</tr>
+						</table>
+			<table width="99%" border="0" cellpadding="10" cellspacing="4" class="textoConteudo" style="margin: 0 0 0 5px;">
+			<tr>
+								<td colspan="4" style="font-weight: bold;" class="tituloCons">
+									<u>A NFS-e para a qual o ISSQN foi recolhido ficar&aacute; dispon&iacute;vel no site por um per&iacute;odo de tr&ecirc;s meses a contar de sua emiss&atilde;o.</u>
+								</td>
+							</tr>
+							</table>
+			<fieldset>
+				<legend style="font-weight: bold;">
+				
+					Identifica&ccedil;&atilde;o da Nota Fiscal
+				</legend>
+				<table width="99%" border="0" cellpadding="10" cellspacing="4" class="textoConteudo" style="margin: 0 0 0 5px;">
+					<tr>
+						<td>CNPJ do Prestador de Servi&ccedil;os: 
+							<br /><input id="form:cnpjPrestador" type="text" name="form:cnpjPrestador" onkeypress="desbloqueiaEnterCampoTextoConformeMinimoAtivaBotao('form:bt_procurar_NFS-e', event, this, 14);" /><script type="text/javascript">//<![CDATA[
+ {
+	var selector = "#form\\:cnpjPrestador";
+	try {
+		selector = eval("#form\\:cnpjPrestador");
+	} catch (e) {}
+	jQuery(selector).numeric();
+}
+//]]></script><script type="text/javascript">//<![CDATA[
+ {
+	var selector = "#form\\:cnpjPrestador";
+	try {
+		selector = eval("#form\\:cnpjPrestador");
+	} catch (e) {}
+	jQuery(selector).mask("99.999.999/9999-99");
+}
+//]]></script>
+							<img src="/nfse/resources/images/ico_obrigatorio.png" alt="Obrigatrio" width="11" height="10" />
+						</td>
+						<td>N&uacute;mero da NFS-e: 
+							<img id="help-num-nfse" src="/nfse/resources/images/icon/question_mark_icon.png" width="13" height="13" /><span class="dr-rich-tool-tip rich-tool-tip " id="form:j_id92" style="z-index:99; "><span id="form:j_id92content">
+                                <span style="white-space:nowrap">
+                                    O n&uacute;mero da NFS-e deve consistir do ano que o documento fiscal<br />
+                                    foi gerado (4 d&iacute;gitos), seguido pelo n&uacute;mero sequencial da mesma.
+                                </span></span><span id="form:j_id92script" style="display:none"><script type="text/javascript" id ="scriptform:j_id92">
+new ToolTip({'showEvent':'mouseover','hideEvent':'','hideDelay':0,'delay':0} ,{'onhide':null,'oncomplete':null,'onshow':null} ,"form:j_id92","help-num-nfse","client",false,"bottom-right",false,10,10,function(event,ajaxOptions){A4J.AJAX.Submit('_viewRoot','form',event,ajaxOptions)},{'control':this,'oncomplete':function(request,event,data){;{var _toolTip = $('form:j_id92').component;_toolTip.toolTipContent = $('form:j_id92content');_toolTip.displayDiv();}},'similarityGroupingId':'form:j_id92','parameters':{'ajaxSingle':'form:j_id92','form:j_id92':'form:j_id92'} ,'onbeforedomupdate':function(request,showEvent,data){;{ var _toolTip = $('form:j_id92').component;_toolTip.toolTip.style.display = 'none'; }},'actionUrl':'/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1'} );;
+
+</script></span></span>
+
+							<br /><input id="form:numeroNfsE" type="text" name="form:numeroNfsE" onkeypress="desbloqueiaEnterCampoTextoPesquisaAtivaBotaoPesquisaCancelamento('form:bt_procurar_NFS-e', event, this);" onkeyup="Mascara(this,Nfse);" />
+							<img src="/nfse/resources/images/ico_obrigatorio.png" alt="Obrigatrio" width="11" height="10" />
+						</td>
+						<td>C&oacute;digo de Verifica&ccedil;&atilde;o: 
+							<br /><input id="form:codVerif" type="text" name="form:codVerif" onkeypress="desbloqueiaEnterCampoTextoPesquisaAtivaBotaoPesquisar('form:bt_procurar_NFS-e', event);" />
+							<img src="/nfse/resources/images/ico_obrigatorio.png" alt="Obrigatrio" width="11" height="10" />
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+<br />
+			<fieldset>
+				<legend style="font-weight: bold;">
+					Apenas mais alguns detalhes para sua seguran&ccedil;a
+				</legend>
+				<table class="textoConteudo" width="750px" border="0" cellpadding="10" cellspacing="4">
+					<tr>
+						<td valign="top" width="50%">N&uacute;meros exibidos na imagem: 
+							<input type="text" id="j_captcha_response" name="j_captcha_response" onkeypress="desbloqueiaEnterCampoTextoPesquisaAtivaBotaoPesquisar('form:bt_procurar_NFS-e', event);" />
+							<img src="/nfse/resources/images/ico_obrigatorio.png" alt="Obrigatrio" width="11" height="10" />
+						</td>
+						<td>
+						<span id="areaCaptcha"><img id="form:img_captcha" src="/nfse/captcha.jpg;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1?pk=82" />
+						</span>
+							<br /><a href="#" id="form:j_id102" name="form:j_id102" onclick="A4J.AJAX.Submit('_viewRoot','form',event,{'similarityGroupingId':'form:j_id102','parameters':{'form:j_id102':'form:j_id102'} ,'actionUrl':'/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1'} );return false;">Tentar uma imagem diferente</a>
+						</td>
+					</tr>
+				</table>
+			</fieldset><script id="form:j_id105" type="text/javascript">//<![CDATA[
+		showNFSe=function(){A4J.AJAX.Submit('_viewRoot','form',null,{'similarityGroupingId':'form:j_id105','parameters':{'form:j_id105':'form:j_id105'} ,'actionUrl':'/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1'} )};
+		//]]></script>
+		<script>
+			window.document.getElementById('form:cnpjPrestador').focus();
+		</script>
+				<!-- FORM --><input id="form:a2" type="image" src="/nfse/resources/images/bt_retornar.gif;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1" name="form:a2" style="border: none;" class="botoes" /><input id="form:bt_procurar_NFS-e" type="image" src="/nfse/resources/images/bt_consultar_resultado.gif;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1" name="form:bt_procurar_NFS-e" style="border: none;" class="botoes" /><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id1" />
+</form><?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"><div id="SubstituidaModalPanelSubview:substituidaModalPanel" style="display: none;"><input id="SubstituidaModalPanelSubview:substituidaModalPanelOpenedState" name="SubstituidaModalPanelSubview:substituidaModalPanelOpenedState" type="hidden" /><div class="rich-modalpanel " id="SubstituidaModalPanelSubview:substituidaModalPanelContainer" style="position: absolute; display: none; z-index: 100; background-color: inherit;"><div class="dr-mpnl-mask-div dr-mpnl-mask-div-opaque rich-mpnl-mask-div" id="SubstituidaModalPanelSubview:substituidaModalPanelDiv" style="z-index: 1;"><button class="dr-mpnl-pnl-button" id="SubstituidaModalPanelSubview:substituidaModalPanelFirstHref"></button></div><div class="dr-mpnl-panel rich-mpnl_panel"><div id="SubstituidaModalPanelSubview:substituidaModalPanelCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;"><div class="dr-mpnl-shadow rich-mpnl-shadow" id="SubstituidaModalPanelSubview:substituidaModalPanelShadowDiv"></div><div class="dr-mpnl-ovf-hd dr-mpnl-trim dr-mpnl-pnl rich-mp-content" id="SubstituidaModalPanelSubview:substituidaModalPanelContentDiv" style="border: 1px solid #CCCCCC;"><table border="0" cellpadding="0" cellspacing="0" id="SubstituidaModalPanelSubview:substituidaModalPanelContentTable" style="height: 100%; width: 100%;"><tr style="height: 99%"><td class="dr-mpnl-pnl-b rich-mpnl-body" valign="top"><span id="SubstituidaModalPanelSubview:substituidaPanel">
+			<div style="width: 480px; border: 0px; color: #176753;"><img src="/nfse/resources/images/bt_fechar_popup.gif;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1" alt="Fechar" onclick="javascript:Richfaces.hideModalPanel('SubstituidaModalPanelSubview:substituidaModalPanel')" style="vertical-align:-17px; border: 0;" class="right" />
+				<div style="font-size: 16px; color: #2e7b8c; margin: 3px 3px 3px; padding: 0px 0px 4px; border-bottom: 1px solid #c8cecd; font-weight: normal; text-align: left;">
+					Confirma&ccedil;&atilde;o da NFS-e Substitu&iacute;da:
+				</div>
+			</div>
+<form id="SubstituidaModalPanelSubview:formSubstituidaModalPanel" name="SubstituidaModalPanelSubview:formSubstituidaModalPanel" method="post" action="/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="SubstituidaModalPanelSubview:formSubstituidaModalPanel" value="SubstituidaModalPanelSubview:formSubstituidaModalPanel" />
+<span id="SubstituidaModalPanelSubview:formSubstituidaModalPanel:mensagemSubstituida"></span>
+
+				<div class="txtAjuda" align="left" style="height: 286px; overflow: auto; margin-right: 2px; margin-left: 10px; margin-top: 10px; margin-bottom: 30px;"><span id="SubstituidaModalPanelSubview:formSubstituidaModalPanel:panelSubstituida"></span><input class="botoes" id="SubstituidaModalPanelSubview:formSubstituidaModalPanel:j_id150" name="SubstituidaModalPanelSubview:formSubstituidaModalPanel:j_id150" onclick="A4J.AJAX.Submit('j_id108','SubstituidaModalPanelSubview:formSubstituidaModalPanel',event,{'oncomplete':function(request,event,data){javascript:Richfaces.hideModalPanel('SubstituidaModalPanelSubview:substituidaModalPanel');},'similarityGroupingId':'SubstituidaModalPanelSubview:formSubstituidaModalPanel:j_id150','parameters':{'SubstituidaModalPanelSubview:formSubstituidaModalPanel:j_id150':'SubstituidaModalPanelSubview:formSubstituidaModalPanel:j_id150'} ,'actionUrl':'/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1'} );return false;" value="Retornar" type="image" src="/nfse/resources/images/bt_retornar.gif;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1" alt="Retornar" />				
+				</div><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id1" />
+</form></span></td></tr></table></div></div></div><div class="dr-mpnl-mask-div dr-mpnl-mask-div-transparent rich-mpnl-mask-div" id="SubstituidaModalPanelSubview:substituidaModalPanelCursorDiv" style="z-index: -200;"><button class="dr-mpnl-pnl-button" id="SubstituidaModalPanelSubview:substituidaModalPanelLastHref"></button></div><script type="text/javascript">new ModalPanel('SubstituidaModalPanelSubview:substituidaModalPanel',
+				{
+					width: 500,
+					height: 350,
+
+					minWidth: -1,
+					minHeight: -1,
+
+					resizeable: false,
+					moveable: false,
+
+					left: "auto",
+					top: "auto",
+
+					zindex: 100,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow: '',onbeforehide: '',
+					domElementAttachment: "",				
+					keepVisualState: false,
+					showWhenRendered: false,
+					selectBehavior: "disable",
+
+					autosized: false});</script></div><script type="text/javascript"></script></div>
+</html><?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<!-- *************************** PANELS *************************** -->
+	<!-- MODAL PANEL MES DE REFERENCIA --><div id="MesReferenciaModalPanelSubview:panelMesReferencia" style="display: none;"><input id="MesReferenciaModalPanelSubview:panelMesReferenciaOpenedState" name="MesReferenciaModalPanelSubview:panelMesReferenciaOpenedState" type="hidden" /><div class="rich-modalpanel popUp" id="MesReferenciaModalPanelSubview:panelMesReferenciaContainer" style="position: absolute; display: none; z-index: 100; background-color: inherit;"><div class="dr-mpnl-mask-div dr-mpnl-mask-div-opaque rich-mpnl-mask-div" id="MesReferenciaModalPanelSubview:panelMesReferenciaDiv" style="z-index: 1;"><button class="dr-mpnl-pnl-button" id="MesReferenciaModalPanelSubview:panelMesReferenciaFirstHref"></button></div><div class="dr-mpnl-panel rich-mpnl_panel"><div id="MesReferenciaModalPanelSubview:panelMesReferenciaCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;"><div class="dr-mpnl-shadow rich-mpnl-shadow" id="MesReferenciaModalPanelSubview:panelMesReferenciaShadowDiv"></div><div class=" dr-mpnl-pnl rich-mp-content" id="MesReferenciaModalPanelSubview:panelMesReferenciaContentDiv"><table border="0" cellpadding="0" cellspacing="0" id="MesReferenciaModalPanelSubview:panelMesReferenciaContentTable" style="width: 405px;height: 320px;"><tr style="height: 99%"><td class="dr-mpnl-pnl-b rich-mpnl-body" valign="top">
+
+			<!--INICIO POP UP-->
+				<div id="tituloModal">
+					Identifica&ccedil;&atilde;o da
+					NFS-e
+					<a href="#"><img src="/nfse/resources/images/bt_fechar_popup.png" alt="Fechar" border="0" class="fecharModal" onclick="javascript:Richfaces.hideModalPanel('MesReferenciaModalPanelSubview:panelMesReferencia')" />
+					</a>
+				</div>
+				<p>
+					&nbsp;
+				</p>
+<form id="MesReferenciaModalPanelSubview:formMesReferencia" name="MesReferenciaModalPanelSubview:formMesReferencia" method="post" action="/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1" enctype="application/x-www-form-urlencoded" onkeypress="var evento = (window.event ? event.keyCode : event.which); if(evento == 13 || evento == 10){ return false;}">
+<input type="hidden" name="MesReferenciaModalPanelSubview:formMesReferencia" value="MesReferenciaModalPanelSubview:formMesReferencia" />
+<span id="MesReferenciaModalPanelSubview:formMesReferencia:mensagensIdnNfse">
+					<div align="center">
+					</div></span><input id="MesReferenciaModalPanelSubview:formMesReferencia:competenciaOK" type="hidden" name="MesReferenciaModalPanelSubview:formMesReferencia:competenciaOK" />
+						<table width="98%" border="0" cellspacing="0" cellpadding="4" class="textoConteudo">
+							<tr>
+								<td>
+									<table width="100%" border="0" cellpadding="4" cellspacing="10" class="textoConteudo">
+										<tr>
+											<td width="45%">
+												Voc&ecirc; deseja:
+												<br /><br /><table id="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao" class="textoConteudo">
+	<tr>
+<td>
+<input type="radio" name="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao" id="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao:0" value="1" onclick="A4J.AJAX.Submit('j_id108','MesReferenciaModalPanelSubview:formMesReferencia',event,{'oncomplete':function(request,event,data){selecionaFocoNumSubs();},'similarityGroupingId':'MesReferenciaModalPanelSubview:formMesReferencia:j_id163','parameters':{'MesReferenciaModalPanelSubview:formMesReferencia:j_id163':'MesReferenciaModalPanelSubview:formMesReferencia:j_id163'} ,'actionUrl':'/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1'} )" /><label for="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao:0"> Criar uma nova NFS-e</label></td>
+	</tr>
+	<tr>
+<td>
+<input type="radio" name="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao" id="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao:1" value="2" onclick="A4J.AJAX.Submit('j_id108','MesReferenciaModalPanelSubview:formMesReferencia',event,{'oncomplete':function(request,event,data){selecionaFocoNumSubs();},'similarityGroupingId':'MesReferenciaModalPanelSubview:formMesReferencia:j_id163','parameters':{'MesReferenciaModalPanelSubview:formMesReferencia:j_id163':'MesReferenciaModalPanelSubview:formMesReferencia:j_id163'} ,'actionUrl':'/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1'} )" /><label for="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao:1"> Substituir uma NFS-e emitida com erro</label></td>
+	</tr>
+	<tr>
+<td>
+<input type="radio" name="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao" id="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao:2" value="3" onclick="A4J.AJAX.Submit('j_id108','MesReferenciaModalPanelSubview:formMesReferencia',event,{'oncomplete':function(request,event,data){selecionaFocoNumSubs();},'similarityGroupingId':'MesReferenciaModalPanelSubview:formMesReferencia:j_id163','parameters':{'MesReferenciaModalPanelSubview:formMesReferencia:j_id163':'MesReferenciaModalPanelSubview:formMesReferencia:j_id163'} ,'actionUrl':'/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1'} )" /><label for="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao:2"> Emitir NFS-e com reaproveitamento de dados de um tomador</label></td>
+	</tr>
+</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td><span id="MesReferenciaModalPanelSubview:formMesReferencia:pnlSubstituida"><input id="MesReferenciaModalPanelSubview:formMesReferencia:indSubs" type="hidden" name="MesReferenciaModalPanelSubview:formMesReferencia:indSubs" /></span>
+								</td>
+							</tr>
+							<tr>
+								<td><span id="MesReferenciaModalPanelSubview:formMesReferencia:pnlReaproveitada"></span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<table width="100%" border="0" cellpadding="4" cellspacing="10" class="textoConteudo">
+										<tr>
+										
+											<td><span style="font-weight: bold;">Informe a data da presta&ccedil;&atilde;o do servi&ccedil;o ou data do recebimento de adiantamentos ou sinais da presta&ccedil;&atilde;o do servi&ccedil;o:</span>
+											</td> 	
+											
+											<td align="center"><span id="MesReferenciaModalPanelSubview:formMesReferencia:dtCompetenciaPanel"><input id="MesReferenciaModalPanelSubview:formMesReferencia:dtCompetencia" type="text" name="MesReferenciaModalPanelSubview:formMesReferencia:dtCompetencia" maxlength="10" onkeypress="desbloqueiaEnterCampoTextoDatasAtivaBotaoPesquisar('MesReferenciaModalPanelSubview:formMesReferencia:bt_confirmar_comp_subs', event, this);" style="width:75px" /><script type="text/javascript">//<![CDATA[
+ {
+	var selector = "#MesReferenciaModalPanelSubview\\:formMesReferencia\\:dtCompetencia";
+	try {
+		selector = eval("#MesReferenciaModalPanelSubview\\:formMesReferencia\\:dtCompetencia");
+	} catch (e) {}
+	jQuery(selector).mask("99/99/9999");
+}
+//]]></script>
+														<img src="/nfse/resources/images/ico_obrigatorio.png" alt="Obrigatorio" width="11" height="10" /></span>
+											</td>
+											
+										</tr>
+										<tr>
+											<td colspan="2"><a href="#" id="MesReferenciaModalPanelSubview:formMesReferencia:j_id190" name="MesReferenciaModalPanelSubview:formMesReferencia:j_id190" onclick="A4J.AJAX.Submit('MesReferenciaModalPanelSubview:formMesReferencia:j_id183','MesReferenciaModalPanelSubview:formMesReferencia',event,{'similarityGroupingId':'MesReferenciaModalPanelSubview:formMesReferencia:j_id190','parameters':{'MesReferenciaModalPanelSubview:formMesReferencia:j_id190':'MesReferenciaModalPanelSubview:formMesReferencia:j_id190'} ,'actionUrl':'/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1'} );return false;">(Clique aqui se for a data atual)</a>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<table width="100%" border="0" cellpadding="0" cellspacing="10" class="textoConteudo">
+										<tr>
+											<td align="center"><input class="botoes" id="MesReferenciaModalPanelSubview:formMesReferencia:bt_confirmar_comp_subs" name="MesReferenciaModalPanelSubview:formMesReferencia:bt_confirmar_comp_subs" onclick="A4J.AJAX.Submit('j_id108','MesReferenciaModalPanelSubview:formMesReferencia',event,{'oncomplete':function(request,event,data){javascript:openConfirmacaoHere();},'similarityGroupingId':'MesReferenciaModalPanelSubview:formMesReferencia:bt_confirmar_comp_subs','parameters':{'MesReferenciaModalPanelSubview:formMesReferencia:bt_confirmar_comp_subs':'MesReferenciaModalPanelSubview:formMesReferencia:bt_confirmar_comp_subs'} ,'actionUrl':'/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1'} );return false;" type="image" src="/nfse/resources/images/bt_confirmar.png;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1" />
+											</td>
+										</tr>
+									</table>
+							</td>
+							</tr>
+						</table><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id1" />
+</form>
+			
+				<p>
+					&nbsp;
+				</p>
+			<!--fim popUp-->
+
+
+			<!-- REFRESH AREA DO PANEL MES DE REFERENCIA --></td></tr></table></div></div></div><div class="dr-mpnl-mask-div dr-mpnl-mask-div-transparent rich-mpnl-mask-div" id="MesReferenciaModalPanelSubview:panelMesReferenciaCursorDiv" style="z-index: -200;"><button class="dr-mpnl-pnl-button" id="MesReferenciaModalPanelSubview:panelMesReferenciaLastHref"></button></div><script type="text/javascript">new ModalPanel('MesReferenciaModalPanelSubview:panelMesReferencia',
+				{
+					width: 405,
+					height: 320,
+
+					minWidth: -1,
+					minHeight: -1,
+
+					resizeable: false,
+					moveable: false,
+
+					left: "auto",
+					top: "auto",
+
+					zindex: 100,onresize: '',onmove: '',onshow: function(event){window.document.getElementById('MesReferenciaModalPanelSubview:formMesReferencia:dtCompetencia').focus();},onhide: '',onbeforeshow: '',onbeforehide: '',
+					domElementAttachment: "",				
+					keepVisualState: false,
+					showWhenRendered: false,
+					selectBehavior: "disable",
+
+					autosized: true});</script></div><script type="text/javascript"></script></div>
+		<script type="text/javascript">
+			</script>
+
+	<!-- FIM MODAL PANEL MES DE REFERENCIA -->
+
+	<!-- *************************** FIM PANELS *************************** -->
+</html><?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+		<!-- Componente Modal Consulta Atividades --><div id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopup" style="display: none;"><input id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupOpenedState" name="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupOpenedState" type="hidden" /><div class="rich-modalpanel popUp" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupContainer" style="position: absolute; display: none; z-index: 100; background-color: inherit;"><div class="dr-mpnl-mask-div dr-mpnl-mask-div-opaque rich-mpnl-mask-div" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupDiv" style="z-index: 1;"><button class="dr-mpnl-pnl-button" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupFirstHref"></button></div><div class="dr-mpnl-panel rich-mpnl_panel"><div id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;"><div class="dr-mpnl-shadow rich-mpnl-shadow" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupShadowDiv"></div><div class=" dr-mpnl-pnl rich-mp-content" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupContentDiv"><table border="0" cellpadding="0" cellspacing="0" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupContentTable" style="width: 543px;height: 414px;"><tr style="height: 99%"><td class="dr-mpnl-pnl-b rich-mpnl-body" valign="top">
+			
+			<div id="tituloModal">
+					Sele&ccedil;&atilde;o de Estabelecimento
+					<a href="#"><img src="/nfse/resources/images/bt_fechar_popup.png" alt="Fechar" border="0" class="fecharModal" onclick="javascript:Richfaces.hideModalPanel('selecionaEmpresaPopup')" />
+					</a>
+				</div>
+				<p>
+					&nbsp;
+				</p>
+<form id="SelecionaEmpresaModalPanelSubview:formPanel" name="SelecionaEmpresaModalPanelSubview:formPanel" method="post" action="/nfse/pages/consultaNFS-e_cidadao.jsf;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="SelecionaEmpresaModalPanelSubview:formPanel" value="SelecionaEmpresaModalPanelSubview:formPanel" />
+<span id="SelecionaEmpresaModalPanelSubview:formPanel:panelEmpresas"></span><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id1" />
+</form>
+		
+			<p>
+					&nbsp;
+				</p></td></tr></table></div></div></div><div class="dr-mpnl-mask-div dr-mpnl-mask-div-transparent rich-mpnl-mask-div" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupCursorDiv" style="z-index: -200;"><button class="dr-mpnl-pnl-button" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupLastHref"></button></div><script type="text/javascript">new ModalPanel('SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopup',
+				{
+					width: 543,
+					height: 414,
+
+					minWidth: -1,
+					minHeight: -1,
+
+					resizeable: false,
+					moveable: false,
+
+					left: "auto",
+					top: "auto",
+
+					zindex: 100,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow: '',onbeforehide: '',
+					domElementAttachment: "",				
+					keepVisualState: false,
+					showWhenRendered: false,
+					selectBehavior: "disable",
+
+					autosized: true});</script></div><script type="text/javascript"></script></div>
+</html><span id="j_id108:status"><span id="j_id108:status.start" style="display: none"></span><script type="text/javascript">
+window.document.getElementById('j_id108:status.start').onstart=function(){Richfaces.showModalPanel('ajaxLoadingModalBoxForModais',{width:300, top:200});};
+</script><span id="j_id108:status.stop"></span><script type="text/javascript">
+window.document.getElementById('j_id108:status.stop').onstop=function(){Richfaces.hideModalPanel('ajaxLoadingModalBoxForModais');};
+</script></span><div id="ajaxLoadingModalBoxForModais" style="display: none;"><input id="ajaxLoadingModalBoxForModaisOpenedState" name="ajaxLoadingModalBoxForModaisOpenedState" type="hidden" /><div class="rich-modalpanel " id="ajaxLoadingModalBoxForModaisContainer" style="position: absolute; display: none; z-index: 2000; background-color: inherit;"><div class="dr-mpnl-mask-div dr-mpnl-mask-div-opaque rich-mpnl-mask-div" id="ajaxLoadingModalBoxForModaisDiv" style="z-index: 1;"><button class="dr-mpnl-pnl-button" id="ajaxLoadingModalBoxForModaisFirstHref"></button></div><div class="dr-mpnl-panel rich-mpnl_panel"><div id="ajaxLoadingModalBoxForModaisCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;"><div class="dr-mpnl-shadow rich-mpnl-shadow" id="ajaxLoadingModalBoxForModaisShadowDiv"></div><div class="dr-mpnl-ovf-hd dr-mpnl-trim dr-mpnl-pnl rich-mp-content" id="ajaxLoadingModalBoxForModaisContentDiv"><table border="0" cellpadding="0" cellspacing="0" id="ajaxLoadingModalBoxForModaisContentTable" style="height: 100%; width: 100%;"><tr style="height: 99%"><td class="dr-mpnl-pnl-b rich-mpnl-body" valign="top">
+		<div align="center">Processando ...
+			<br /><img src="/nfse/resources/images/ajax-loader.gif;jsessionid=443D2246EE23AF8F71D1140C5E652CF6.nfse1" />
+		</div></td></tr></table></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxForModaisResizerN" style="width: 40px; height: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxForModaisResizerE" style="height: 40px; width: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxForModaisResizerS" style="width: 40px; height: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxForModaisResizerW" style="height: 40px; width: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxForModaisResizerNWU" style="width: 40px; height: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxForModaisResizerNEU" style="height: 40px; width: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxForModaisResizerNEL" style="width: 40px; height: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxForModaisResizerSEU" style="height: 40px; width: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxForModaisResizerSEL" style="width: 40px; height: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxForModaisResizerSWL" style="height: 40px; width: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxForModaisResizerSWU" style="width: 40px; height: 4px;"></div><div class="dr-mpnl-resizer rich-mpnl-resizer" id="ajaxLoadingModalBoxForModaisResizerNWL" style="height: 40px; width: 4px;"></div></div></div><div class="dr-mpnl-mask-div dr-mpnl-mask-div-transparent rich-mpnl-mask-div" id="ajaxLoadingModalBoxForModaisCursorDiv" style="z-index: -200;"><button class="dr-mpnl-pnl-button" id="ajaxLoadingModalBoxForModaisLastHref"></button></div><script type="text/javascript">new ModalPanel('ajaxLoadingModalBoxForModais',
+				{
+					width: 300,
+					height: 50,
+
+					minWidth: -1,
+					minHeight: -1,
+
+					resizeable: true,
+					moveable: true,
+
+					left: "auto",
+					top: "auto",
+
+					zindex: 2000,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow: '',onbeforehide: '',
+					domElementAttachment: "",				
+					keepVisualState: false,
+					showWhenRendered: false,
+					selectBehavior: "disable",
+
+					autosized: false});</script></div><script type="text/javascript"></script></div>
+
+		</div>
+</html><?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+        <br class="clearfloat" />
+        <div id="rodape">
+            <div id="linhaRodape">&nbsp;&nbsp;</div>
+            <img align="left" style="padding-left: 50px" alt="BH Resolve" src="/nfse/resources/images/img_brasao_titulo.gif" />
+                <img align="right" style="padding-right: 50px" alt="BH Resolve" src="/nfse/resources/images/nota_10.jpg" />
+            <p style="padding-left: 155px;">
+                Prefeitura de Belo Horizonte - Secretaria Municipal de Fazenda
+                <br />
+                Rua Esp&iacute;rito Santo, 605 - 3&ordm; andar - Centro - CEP: 30160-919 - Belo Horizonte MG.
+                <br />
+                D&uacute;vidas: SIGESP
+            </p>
+            
+        </div>
+</html>
+
+            </div>
+
+        </body>
+</html>

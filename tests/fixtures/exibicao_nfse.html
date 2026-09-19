@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+	<script src="/nfse/a4j/g/3_3_0.GA/org/ajax4jsf/framework.pack.js.jsf" type="text/javascript"></script>
+	<script src="/nfse/a4j/g/3_3_0.GA/org/richfaces/ui.pack.js.jsf" type="text/javascript"></script>
+	<link class="component" href="/nfse/a4j/s/3_3_0.GAorg/richfaces/renderkit/html/css/basic_classes.xcss/DATB/eAGL-em0LnT5DGkAEz0D9Q__.jsf" rel="stylesheet" type="text/css" />
+	<link class="component" href="/nfse/a4j/s/3_3_0.GAorg/richfaces/renderkit/html/css/extended_classes.xcss/DATB/eAGL-em0LnT5DGkAEz0D9Q__.jsf" media="rich-extended-skinning" rel="stylesheet" type="text/css" />
+	<link class="component" href="/nfse/a4j/s/3_3_0.GA/org/richfaces/skin.xcss/DATB/eAGL-em0LnT5DGkAEz0D9Q__.jsf" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">window.RICH_FACES_EXTENDED_SKINNING_ON=true;</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="cache-control" content="PRIVATE" />
+	<title>:: NFS-e - Nota Fiscal de Servi&ccedil;os eletr&ocirc;nica ::</title>
+	<link rel="stylesheet" type="text/css" href="/nfse/resources/styles/AppStyle.css" />
+	<link rel="stylesheet" type="text/css" href="/nfse/resources/styles/Skin.css" />
+	<link rel="stylesheet" type="text/css" href="/nfse/resources/styles/AppStyleRichUpload.css" />
+	<link rel="stylesheet" type="text/css" href="/nfse/resources/styles/pop.css" />
+	<link rel="stylesheet" type="text/css" href="/nfse/resources/styles/view.css" />
+	<script src="/nfse/resources/scripts/AppScript.js" type="text/javascript"></script>
+	<script src="/nfse/resources/scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+	<script src="/nfse/resources/scripts/jquery.maskedinput-1.1.4.pack.js" type="text/javascript"></script>
+	<script src="/nfse/resources/scripts/jquery.numeric.pack.js" type="text/javascript"></script>
+	<script src="/nfse/resources/scripts/jquery.floatnumber.js" type="text/javascript"></script>
+	<script type="text/javascript">jQuery.noConflict();</script>
+
+</head>
+
+		<body>
+			<div id="moldura">
+<form id="form" name="form" method="post" action="/nfse/pages/exibicaoNFS-e.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="form" value="form" />
+
+					<!-- FORM --><span id="form:j_id5">
+                <a href="/nfse/">
+                    <img src="/nfse/resources/images/bt_pagina_inicial.png" alt="Nota Fical de Servicos Eletronica" border="0" class="noprint" />
+                </a><img alt="" class="rich-spacer " height="1" id="form:j_id7" src="/nfse/a4j/g/3_3_0.GAimages/spacer.gif.jsf" width="10" /></span><span id="form:j_id9"><input class="noprint" id="form:j_id10" name="form:j_id10" onclick="window.location='javascript:history.go(-1)';A4J.AJAX.Submit('_viewRoot','form',event,{'similarityGroupingId':'form:j_id10','parameters':{'form:j_id10':'form:j_id10'} ,'actionUrl':'/nfse/pages/exibicaoNFS-e.jsf'} );return false;" value="VOLTAR" style="border: none;" type="image" src="/nfse/resources/images/bt_retornar.gif" alt="VOLTAR" /></span><img alt="" class="rich-spacer " height="1" id="form:j_id17" src="/nfse/a4j/g/3_3_0.GAimages/spacer.gif.jsf" width="10" /><input type="image" src="/nfse/resources/images/bt_download.gif" name="form:j_id18" style="border: none;" class="noprint" /><img alt="" class="rich-spacer " height="1" id="form:j_id19" src="/nfse/a4j/g/3_3_0.GAimages/spacer.gif.jsf" width="10" /><input class="noprint" id="form:j_id20" name="form:j_id20" onclick="window.location='javascript:self.print()';A4J.AJAX.Submit('_viewRoot','form',event,{'similarityGroupingId':'form:j_id20','parameters':{'form:j_id20':'form:j_id20'} ,'actionUrl':'/nfse/pages/exibicaoNFS-e.jsf'} );return false;" value="Imprimir esta Nota Fiscal" style="border: none;" type="image" src="/nfse/resources/images/bt_imprimir.gif" alt="Imprimir esta Nota Fiscal" /><span id="form:j_id31">
+				<div id="cancelada" class="overlay" style="filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.7071067811865476, M12=0.7071067811865475, M21=-0.7071067811865475, M22=0.7071067811865476); filter: alpha(opacity=40);">
+					<p style="font-size: 72px;">CANCELADA</p>
+					<p id="motivoCancelamento" style="font-size: 24px;">EM 20/06/2025 - Erro na emiss&atilde;o
+					</p>
+				</div></span>
+			
+			<table id="container" border="0" cellpadding="0" cellspacing="0" width="646">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="hh1">
+                                    NFS-e - NOTA FISCAL DE SERVI&Ccedil;OS ELETR&Ocirc;NICA
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bordaInferior">
+                                <table width="100%" border="0" cellspacing="2" cellpadding="0">
+                                    <tr class="teste">
+                                        <td width="25%" class="bordaLateral">
+                                            <span class="numeroDestaque">N&ordm;:2025/999 </span>
+                                        </td>
+                                        <td width="31%" class="bordaLateral">
+                                            <span class="subTitulo">Emitida em:<br /> </span><span class="dataEmissao">12/06/2025 </span>&agrave;s&nbsp;16:28:33
+                                        </td>
+                                        <td width="17%" class="bordaLateral">
+                                            <span class="subTitulo">Compet&ecirc;ncia:</span>
+                                            <br /><span class="dataEmissao">09/06/2025</span>
+                                        </td>
+                                        <td width="27%">
+                                            <span class="subTitulo">C&oacute;digo de Verifica&ccedil;&atilde;o:<br />
+                                            </span><span class="dataEmissao">aaaa1111</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tbody>
+                                        <tr>
+                                            <td valign="top">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="160"><img id="form:imgLogo" src="/nfse/a4j/s/3_3_0.GAorg.ajax4jsf.resource.UserResource/n/n/100313435/DATA/eAF9kk1rFEEQhiuDwfgFwQ1-HAJxFQXRHoQVhRgI0fgBk0QyRjCeamdqZ3vpme5092wmBr158eLBox4Er3ryXwhe8g88iYgg!gK7e4OaHOxbNW-!71NV!f4HjBsNF6UuGA6w6QxMj2kystYZsTVDenW3OLem-S20CP60rn6P4EACxzJNaOmmrCxV1sLxZIBDjAVWRbzSHVBmZxM4SI3iznMDnsFYAhOlzHmPU75bjw9R1BSKRjmW896iYT3MyLBMlkpWzpul1gXdlSInneKQ9KNPH-devfm8FEGUwKFMoDHLWNJehtRqXhWO4bBxb!LgYeHEiJLLOCXNUfAn2BU02ygff8FFMlNXAUCQNYwEe4DFEtm-zBcb5ToxXFZhDgBjRwEaDadH0E66X7eRnDyy!vLLzyjoWn90f53ePX-R!lrfueEVnqAdlqEw65PP3m94r1Ricet1Mnnq7ZYP95Ob2DwD02e3qeFdnqFcvp3SAmHFFPLKJrKQTwFqDa3HoXPm9-MGGmbzYefh12!T23dCumsqsjDlIRmXbKW2qrZOSFhamAzX4e1ot0o1m6twP1ZYkIn!Cb9MrOnbUszMX-lcu3S9M7Pnm8y1!0vadntQvwEMUuKc.jsf?time=1789855881214" align="middle" />
+                                                            </td>
+                                                            <td width="491">
+                                                                <div class="hh3">EMPRESA EXEMPLO SERVICOS MEDICOS LTDA
+                                                                </div>
+                                                                <table width="100%" cellspacing="1" class="teste">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="52%">
+                                                                                <span class="cnpjPrincipal" id="j_id">
+                                                                                    CPF/CNPJ:&nbsp;12.345.678/0001-99 </span>
+                                                                            </td>
+                                                                            <td width="48%">
+                                                                                <span class="cnpjPrincipal" id="j_id2">
+                                                                                    Inscri&ccedil;&atilde;o Municipal:&nbsp;1182281/001-3 </span>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td colspan="2">RUA EXEMPLO, 1857, APT 703, Centro - Cep: 30000-000
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <span id="j_id3">Belo Horizonte
+                                                                                </span>
+                                                                            </td>
+                                                                            <td>
+                                                                                <span id="j_id5">MG </span>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Telefone: &nbsp;
+                                                                            </td>
+                                                                            <td>
+                                                                                Email: &nbsp;contato@exemplo.com
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <hr class="linhaDivisao" />
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <div class="box02">
+                                                                    <table>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td colspan="2">
+                                                                                    <div class="hh2">
+                                                                                        Tomador do(s) Servi&ccedil;o(s)
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="teste">
+                                                                                <td width="52%">
+                                                                                    <span class="cnpjPrincipal" id="j_id27"><span id="form:j_id64">
+                                        CPF/CNPJ:&nbsp;111.222.333-44</span> </span>
+                                                                                </td>
+                                                                                <td width="48%">
+                                                                                    <span class="cnpjPrincipal" id="j_id33"><span id="form:j_id70">
+                                        Inscri&ccedil;&atilde;o Municipal:&nbsp;N&atilde;o Informado</span> </span>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="teste">
+                                                                                <td colspan="2">
+                                                                                    <span class="cnpjPrincipal">Fulano de Tal
+                                                                                    </span>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="teste">
+                                                                                <td colspan="2">Rua Exemplo, 30, apto 301, Bairro Exemplo - Cep: 30000-000
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="teste">
+                                                                                <td>
+                                                                                    <span id="j_id41"><span id="form:j_id78">Conselheiro Lafaiete</span> </span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span id="j_id44"><span id="form:j_id81">MG</span> </span>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="teste">
+                                                                                <td>
+                                                                                    Telefone:&nbsp;N&atilde;o Informado
+                                                                                </td>
+                                                                                <td>
+                                                                                    Email:&nbsp;N&atilde;o Informado
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <img src="/nfse/resources/images/imagens_view/bottom_box02.gif" alt="." class="noprint" />
+                                                                </div>
+                                                                <hr class="linhaDivisao" />
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr class="teste">
+                        </tr><span id="form:j_id88">
+                            <tr>
+                                <td>
+                                    <div class="box04">
+                                        <table border="0" cellpadding="2" cellspacing="0" width="100%">
+                                            <tbody>
+                                                <tr>
+
+                                                    <td width="56%"><span id="form:j_id95">
+                                                            <span class="subTitulo">NFS-e Substituidora:&nbsp;</span><span class="teste">2025/125</span></span>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr></span>
+
+                        <tr>
+                            <td>
+                                <div class="box02">
+                                    <table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td width="100%">
+                                                    <div class="hh2">
+                                                        Discrimina&ccedil;&atilde;o do(s) Servi&ccedil;o(s)
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="servicos">O paciente Paciente Exemplo esta em acompanhamento médico regular com pediatra especialista em sono e nutrologis infantil - Dra Exemplo da Silva <br/>CRM 00000/ RQE 00000
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <img src="/nfse/resources/images/imagens_view/bottom_box02.gif" alt="." class="noprint" />
+                                    <hr class="linhaDivisao" />
+                                </div>
+
+                                <div class="box04">
+                                    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <span class="subTitulo">C&oacute;digo de Tributa&ccedil;&atilde;o do Munic&iacute;pio (CTISS)</span>
+                                                    <p class="teste">0401-0/01-88 / Medicina
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <hr class="linhaDivisao" />
+                                </div>
+
+                                <div style="margin: 0px 5px;">
+                                    <p class="teste">
+                                        <span class="subTitulo">Subitem Lista de Servi&ccedil;os LC
+                                            116/03 / Descri&ccedil;&atilde;o:</span>
+                                    </p>
+                                    <p class="teste">4.01 / Medicina e biomedicina.
+                                    </p>
+                                    <hr class="linhaDivisao" />
+                                </div>
+
+                                <div class="box04">
+                                    <span id="j_id106"> </span>
+                                    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td valign="top" width="50%">
+                                                    <p class="teste">
+                                                        <span class="subTitulo">Cod/Munic&iacute;pio da incid&ecirc;ncia do ISSQN:</span>
+                                                    </p>
+                                                    <p class="teste">3106200 / Belo Horizonte
+                                                    </p>
+                                                </td>
+                                                <td valign="top" width="50%">
+                                                    <span class="subTitulo">Natureza da Opera&ccedil;&atilde;o:</span>
+                                                    <p class="teste">Tributa&ccedil;&atilde;o no munic&iacute;pio
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <hr class="linhaDivisao" />
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td valign="top" class="bordaInferior">
+                                            <div class="box05">
+                                                <table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="hh2" width="44%">
+                                                                Valor dos servi&ccedil;os:
+                                                            </td>
+                                                            <td class="hh2" width="56%" align="right">R$ 350,00
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tableValores">
+                                                                    <tr>
+                                                                        <td width="131" class="bordaInferior">
+                                                                            (-) Descontos:
+                                                                        </td>
+                                                                        <td width="165" align="right" class="bordaInferior">R$ 0,00
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="bordaInferior">
+                                                                            (-) Reten&ccedil;&otilde;es Federais:
+                                                                        </td>
+                                                                        <td align="right" class="bordaInferior">R$ 0,00
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="bordaInferior">
+                                                                            (-) ISS Retido na Fonte:
+                                                                        </td>
+                                                                        <td align="right" class="bordaInferior">R$ 0,00
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="valorLiquido">
+                                                                            <b>Valor L&iacute;quido:</b>
+                                                                        </td>
+                                                                        <td align="right" class="valorLiquido">
+                                                                            <b>R$ 350,00
+                                                                            </b>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <img src="/nfse/resources/images/imagens_view/bottom_box05.gif" alt="." class="noprint" />
+                                            </div>
+                                        </td>
+                                        <td class="bordaInferior">
+                                            <div class="box05">
+                                                <table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="42%" class="hh2">
+                                                                Valor dos servi&ccedil;os:
+                                                            </td>
+                                                            <td width="58%" align="right" class="hh2">R$ 350,00
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="teste">
+                                                                    <tr>
+                                                                        <td width="152" class="bordaInferior">
+                                                                            (-) Dedu&ccedil;&otilde;es:
+                                                                        </td>
+                                                                        <td width="144" align="right" class="bordaInferior">R$ 0,00
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="bordaInferior">
+                                                                            (-) Desconto Incondicionado:
+                                                                        </td>
+                                                                        <td align="right" class="bordaInferior">R$ 0,00
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="bordaInferior" style="font-size: 12px;">
+                                                                            <strong>(=) Base de C&aacute;lculo:</strong>
+                                                                        </td>
+                                                                        <td align="right" class="bordaInferior" style="font-size: 12px;">
+                                                                            <strong>R$ 350,00 </strong>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="bordaInferior">
+                                                                            (x) Al&iacute;quota:
+                                                                        </td>
+                                                                        <td align="right" class="bordaInferior">3%
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="valorLiquido">
+                                                                            <b>(=)Valor do ISS:</b>
+                                                                        </td>
+                                                                        <td align="right" class="valorLiquido">
+                                                                            <b>R$ 10,50
+                                                                            </b>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <img src="/nfse/resources/images/imagens_view/bottom_box05.gif" alt="." class="noprint" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr><span id="form:j_id185">
+                            <tr>
+                                <td class="bordaInferior" style="padding: 5px;">
+                                    <span class="subTitulo">Outras Informa&ccedil;&otilde;es:</span>
+                                    <p class="teste">
+                                        <span style="color: red;"><b>Chave de acesso no Ambiente de Dados Nacional: 31062001212345678000199250000000011825068898956091.
+                                        </b>
+                                        </span>
+                                    </p>
+                                </td>
+                            </tr></span>
+                        <tr>
+                            <td>
+                                <table class="tableNoBorder" border="0" cellpadding="4" cellspacing="0" width="100%">
+                                    <tbody>
+                                        <tr>
+                                            <td width="9%">
+                                                <img src="/nfse/resources/images/imagens_view/img_brasao_titulo.gif" alt="Bras&atilde;o Prefeitura" />
+                                            </td>
+                                            <td width="82%">
+                                                <span class="subTitulo">Prefeitura de Belo Horizonte - Secretaria Municipal de Fazenda</span>
+                                                <p class="teste">
+                                                    Rua Esp&iacute;rito Santo, 605 - 3&ordm; andar - Centro - CEP: 30160-919 - Belo Horizonte MG.
+                                                    <br />
+                                                    D&uacute;vidas: SIGESP
+                                                    <br />
+                                                </p>
+                                            </td>
+                                            <td width="9%">
+                                                <img src="/nfse/resources/images/imagens_view/bh_nota_10.jpg" alt="Bras&atilde;o Prefeitura" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table><span id="form:j_id192">
+                <a href="/nfse/">
+                    <img src="/nfse/resources/images/bt_pagina_inicial.png" alt="Nota Fical de Servicos Eletronica" border="0" class="noprint" />
+                </a><img alt="" class="rich-spacer " height="1" id="form:j_id194" src="/nfse/a4j/g/3_3_0.GAimages/spacer.gif.jsf" width="10" /></span><span id="form:j_id196"><input class="noprint" id="form:j_id197" name="form:j_id197" onclick="window.location='javascript:history.go(-1)';A4J.AJAX.Submit('_viewRoot','form',event,{'similarityGroupingId':'form:j_id197','parameters':{'form:j_id197':'form:j_id197'} ,'actionUrl':'/nfse/pages/exibicaoNFS-e.jsf'} );return false;" value="VOLTAR" style="border: none;" type="image" src="/nfse/resources/images/bt_retornar.gif" alt="VOLTAR" /></span><img alt="" class="rich-spacer " height="1" id="form:j_id203" src="/nfse/a4j/g/3_3_0.GAimages/spacer.gif.jsf" width="10" /><input type="image" src="/nfse/resources/images/bt_download.gif" name="form:j_id204" style="border: none;" class="noprint" /><img alt="" class="rich-spacer " height="1" id="form:j_id205" src="/nfse/a4j/g/3_3_0.GAimages/spacer.gif.jsf" width="10" /><input class="noprint" id="form:j_id206" name="form:j_id206" onclick="window.location='javascript:self.print()';A4J.AJAX.Submit('_viewRoot','form',event,{'similarityGroupingId':'form:j_id206','parameters':{'form:j_id206':'form:j_id206'} ,'actionUrl':'/nfse/pages/exibicaoNFS-e.jsf'} );return false;" value="Imprimir esta Nota Fiscal" style="border: none;" type="image" src="/nfse/resources/images/bt_imprimir.gif" alt="Imprimir esta Nota Fiscal" />
+					<!-- FORM --><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id3" />
+</form><?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"><div id="SubstituidaModalPanelSubview:substituidaModalPanel" style="display: none;"><input id="SubstituidaModalPanelSubview:substituidaModalPanelOpenedState" name="SubstituidaModalPanelSubview:substituidaModalPanelOpenedState" type="hidden" /><div class="rich-modalpanel " id="SubstituidaModalPanelSubview:substituidaModalPanelContainer" style="position: absolute; display: none; z-index: 100; background-color: inherit;"><div class="dr-mpnl-mask-div dr-mpnl-mask-div-opaque rich-mpnl-mask-div" id="SubstituidaModalPanelSubview:substituidaModalPanelDiv" style="z-index: 1;"><button class="dr-mpnl-pnl-button" id="SubstituidaModalPanelSubview:substituidaModalPanelFirstHref"></button></div><div class="dr-mpnl-panel rich-mpnl_panel"><div id="SubstituidaModalPanelSubview:substituidaModalPanelCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;"><div class="dr-mpnl-shadow rich-mpnl-shadow" id="SubstituidaModalPanelSubview:substituidaModalPanelShadowDiv"></div><div class="dr-mpnl-ovf-hd dr-mpnl-trim dr-mpnl-pnl rich-mp-content" id="SubstituidaModalPanelSubview:substituidaModalPanelContentDiv" style="border: 1px solid #CCCCCC;"><table border="0" cellpadding="0" cellspacing="0" id="SubstituidaModalPanelSubview:substituidaModalPanelContentTable" style="height: 100%; width: 100%;"><tr style="height: 99%"><td class="dr-mpnl-pnl-b rich-mpnl-body" valign="top"><span id="SubstituidaModalPanelSubview:substituidaPanel">
+			<div style="width: 480px; border: 0px; color: #176753;"><img src="/nfse/resources/images/bt_fechar_popup.gif" alt="Fechar" onclick="javascript:Richfaces.hideModalPanel('SubstituidaModalPanelSubview:substituidaModalPanel')" style="vertical-align:-17px; border: 0;" class="right" />
+				<div style="font-size: 16px; color: #2e7b8c; margin: 3px 3px 3px; padding: 0px 0px 4px; border-bottom: 1px solid #c8cecd; font-weight: normal; text-align: left;">
+					Confirma&ccedil;&atilde;o da NFS-e Substitu&iacute;da:
+				</div>
+			</div>
+<form id="SubstituidaModalPanelSubview:formSubstituidaModalPanel" name="SubstituidaModalPanelSubview:formSubstituidaModalPanel" method="post" action="/nfse/pages/exibicaoNFS-e.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="SubstituidaModalPanelSubview:formSubstituidaModalPanel" value="SubstituidaModalPanelSubview:formSubstituidaModalPanel" />
+<span id="SubstituidaModalPanelSubview:formSubstituidaModalPanel:mensagemSubstituida"></span>
+
+				<div class="txtAjuda" align="left" style="height: 286px; overflow: auto; margin-right: 2px; margin-left: 10px; margin-top: 10px; margin-bottom: 30px;"><span id="SubstituidaModalPanelSubview:formSubstituidaModalPanel:panelSubstituida"></span><input class="botoes" id="SubstituidaModalPanelSubview:formSubstituidaModalPanel:j_id249" name="SubstituidaModalPanelSubview:formSubstituidaModalPanel:j_id249" onclick="A4J.AJAX.Submit('_viewRoot','SubstituidaModalPanelSubview:formSubstituidaModalPanel',event,{'oncomplete':function(request,event,data){javascript:Richfaces.hideModalPanel('SubstituidaModalPanelSubview:substituidaModalPanel');},'similarityGroupingId':'SubstituidaModalPanelSubview:formSubstituidaModalPanel:j_id249','parameters':{'SubstituidaModalPanelSubview:formSubstituidaModalPanel:j_id249':'SubstituidaModalPanelSubview:formSubstituidaModalPanel:j_id249'} ,'actionUrl':'/nfse/pages/exibicaoNFS-e.jsf'} );return false;" value="Retornar" type="image" src="/nfse/resources/images/bt_retornar.gif" alt="Retornar" />				
+				</div><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id3" />
+</form></span></td></tr></table></div></div></div><div class="dr-mpnl-mask-div dr-mpnl-mask-div-transparent rich-mpnl-mask-div" id="SubstituidaModalPanelSubview:substituidaModalPanelCursorDiv" style="z-index: -200;"><button class="dr-mpnl-pnl-button" id="SubstituidaModalPanelSubview:substituidaModalPanelLastHref"></button></div><script type="text/javascript">new ModalPanel('SubstituidaModalPanelSubview:substituidaModalPanel',
+				{
+					width: 500,
+					height: 350,
+
+					minWidth: -1,
+					minHeight: -1,
+
+					resizeable: false,
+					moveable: false,
+
+					left: "auto",
+					top: "auto",
+
+					zindex: 100,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow: '',onbeforehide: '',
+					domElementAttachment: "",				
+					keepVisualState: false,
+					showWhenRendered: false,
+					selectBehavior: "disable",
+
+					autosized: false});</script></div><script type="text/javascript"></script></div>
+</html><?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<!-- *************************** PANELS *************************** -->
+	<!-- MODAL PANEL MES DE REFERENCIA --><div id="MesReferenciaModalPanelSubview:panelMesReferencia" style="display: none;"><input id="MesReferenciaModalPanelSubview:panelMesReferenciaOpenedState" name="MesReferenciaModalPanelSubview:panelMesReferenciaOpenedState" type="hidden" /><div class="rich-modalpanel popUp" id="MesReferenciaModalPanelSubview:panelMesReferenciaContainer" style="position: absolute; display: none; z-index: 100; background-color: inherit;"><div class="dr-mpnl-mask-div dr-mpnl-mask-div-opaque rich-mpnl-mask-div" id="MesReferenciaModalPanelSubview:panelMesReferenciaDiv" style="z-index: 1;"><button class="dr-mpnl-pnl-button" id="MesReferenciaModalPanelSubview:panelMesReferenciaFirstHref"></button></div><div class="dr-mpnl-panel rich-mpnl_panel"><div id="MesReferenciaModalPanelSubview:panelMesReferenciaCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;"><div class="dr-mpnl-shadow rich-mpnl-shadow" id="MesReferenciaModalPanelSubview:panelMesReferenciaShadowDiv"></div><div class=" dr-mpnl-pnl rich-mp-content" id="MesReferenciaModalPanelSubview:panelMesReferenciaContentDiv"><table border="0" cellpadding="0" cellspacing="0" id="MesReferenciaModalPanelSubview:panelMesReferenciaContentTable" style="width: 405px;height: 320px;"><tr style="height: 99%"><td class="dr-mpnl-pnl-b rich-mpnl-body" valign="top">
+
+			<!--INICIO POP UP-->
+				<div id="tituloModal">
+					Identifica&ccedil;&atilde;o da
+					NFS-e
+					<a href="#"><img src="/nfse/resources/images/bt_fechar_popup.png" alt="Fechar" border="0" class="fecharModal" onclick="javascript:Richfaces.hideModalPanel('MesReferenciaModalPanelSubview:panelMesReferencia')" />
+					</a>
+				</div>
+				<p>
+					&nbsp;
+				</p>
+<form id="MesReferenciaModalPanelSubview:formMesReferencia" name="MesReferenciaModalPanelSubview:formMesReferencia" method="post" action="/nfse/pages/exibicaoNFS-e.jsf" enctype="application/x-www-form-urlencoded" onkeypress="var evento = (window.event ? event.keyCode : event.which); if(evento == 13 || evento == 10){ return false;}">
+<input type="hidden" name="MesReferenciaModalPanelSubview:formMesReferencia" value="MesReferenciaModalPanelSubview:formMesReferencia" />
+<span id="MesReferenciaModalPanelSubview:formMesReferencia:mensagensIdnNfse">
+					<div align="center">
+					</div></span><input id="MesReferenciaModalPanelSubview:formMesReferencia:competenciaOK" type="hidden" name="MesReferenciaModalPanelSubview:formMesReferencia:competenciaOK" />
+						<table width="98%" border="0" cellspacing="0" cellpadding="4" class="textoConteudo">
+							<tr>
+								<td>
+									<table width="100%" border="0" cellpadding="4" cellspacing="10" class="textoConteudo">
+										<tr>
+											<td width="45%">
+												Voc&ecirc; deseja:
+												<br /><br /><table id="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao" class="textoConteudo">
+	<tr>
+<td>
+<input type="radio" name="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao" id="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao:0" value="1" onclick="A4J.AJAX.Submit('_viewRoot','MesReferenciaModalPanelSubview:formMesReferencia',event,{'oncomplete':function(request,event,data){selecionaFocoNumSubs();},'similarityGroupingId':'MesReferenciaModalPanelSubview:formMesReferencia:j_id262','parameters':{'MesReferenciaModalPanelSubview:formMesReferencia:j_id262':'MesReferenciaModalPanelSubview:formMesReferencia:j_id262'} ,'actionUrl':'/nfse/pages/exibicaoNFS-e.jsf'} )" /><label for="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao:0"> Criar uma nova NFS-e</label></td>
+	</tr>
+	<tr>
+<td>
+<input type="radio" name="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao" id="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao:1" value="2" onclick="A4J.AJAX.Submit('_viewRoot','MesReferenciaModalPanelSubview:formMesReferencia',event,{'oncomplete':function(request,event,data){selecionaFocoNumSubs();},'similarityGroupingId':'MesReferenciaModalPanelSubview:formMesReferencia:j_id262','parameters':{'MesReferenciaModalPanelSubview:formMesReferencia:j_id262':'MesReferenciaModalPanelSubview:formMesReferencia:j_id262'} ,'actionUrl':'/nfse/pages/exibicaoNFS-e.jsf'} )" /><label for="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao:1"> Substituir uma NFS-e emitida com erro</label></td>
+	</tr>
+	<tr>
+<td>
+<input type="radio" name="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao" id="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao:2" value="3" onclick="A4J.AJAX.Submit('_viewRoot','MesReferenciaModalPanelSubview:formMesReferencia',event,{'oncomplete':function(request,event,data){selecionaFocoNumSubs();},'similarityGroupingId':'MesReferenciaModalPanelSubview:formMesReferencia:j_id262','parameters':{'MesReferenciaModalPanelSubview:formMesReferencia:j_id262':'MesReferenciaModalPanelSubview:formMesReferencia:j_id262'} ,'actionUrl':'/nfse/pages/exibicaoNFS-e.jsf'} )" /><label for="MesReferenciaModalPanelSubview:formMesReferencia:checkSubstituicao:2"> Emitir NFS-e com reaproveitamento de dados de um tomador</label></td>
+	</tr>
+</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td><span id="MesReferenciaModalPanelSubview:formMesReferencia:pnlSubstituida"><input id="MesReferenciaModalPanelSubview:formMesReferencia:indSubs" type="hidden" name="MesReferenciaModalPanelSubview:formMesReferencia:indSubs" /></span>
+								</td>
+							</tr>
+							<tr>
+								<td><span id="MesReferenciaModalPanelSubview:formMesReferencia:pnlReaproveitada"></span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<table width="100%" border="0" cellpadding="4" cellspacing="10" class="textoConteudo">
+										<tr>
+										
+											<td><span style="font-weight: bold;">Informe a data da presta&ccedil;&atilde;o do servi&ccedil;o ou data do recebimento de adiantamentos ou sinais da presta&ccedil;&atilde;o do servi&ccedil;o:</span>
+											</td> 	
+											
+											<td align="center"><span id="MesReferenciaModalPanelSubview:formMesReferencia:dtCompetenciaPanel"><input id="MesReferenciaModalPanelSubview:formMesReferencia:dtCompetencia" type="text" name="MesReferenciaModalPanelSubview:formMesReferencia:dtCompetencia" maxlength="10" onkeypress="desbloqueiaEnterCampoTextoDatasAtivaBotaoPesquisar('MesReferenciaModalPanelSubview:formMesReferencia:bt_confirmar_comp_subs', event, this);" style="width:75px" /><script type="text/javascript">//<![CDATA[
+ {
+	var selector = "#MesReferenciaModalPanelSubview\\:formMesReferencia\\:dtCompetencia";
+	try {
+		selector = eval("#MesReferenciaModalPanelSubview\\:formMesReferencia\\:dtCompetencia");
+	} catch (e) {}
+	jQuery(selector).mask("99/99/9999");
+}
+//]]></script>
+														<img src="/nfse/resources/images/ico_obrigatorio.png" alt="Obrigatorio" width="11" height="10" /></span>
+											</td>
+											
+										</tr>
+										<tr>
+											<td colspan="2"><a href="#" id="MesReferenciaModalPanelSubview:formMesReferencia:j_id289" name="MesReferenciaModalPanelSubview:formMesReferencia:j_id289" onclick="A4J.AJAX.Submit('MesReferenciaModalPanelSubview:formMesReferencia:j_id282','MesReferenciaModalPanelSubview:formMesReferencia',event,{'similarityGroupingId':'MesReferenciaModalPanelSubview:formMesReferencia:j_id289','parameters':{'MesReferenciaModalPanelSubview:formMesReferencia:j_id289':'MesReferenciaModalPanelSubview:formMesReferencia:j_id289'} ,'actionUrl':'/nfse/pages/exibicaoNFS-e.jsf'} );return false;">(Clique aqui se for a data atual)</a>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<table width="100%" border="0" cellpadding="0" cellspacing="10" class="textoConteudo">
+										<tr>
+											<td align="center"><input class="botoes" id="MesReferenciaModalPanelSubview:formMesReferencia:bt_confirmar_comp_subs" name="MesReferenciaModalPanelSubview:formMesReferencia:bt_confirmar_comp_subs" onclick="A4J.AJAX.Submit('_viewRoot','MesReferenciaModalPanelSubview:formMesReferencia',event,{'oncomplete':function(request,event,data){javascript:openConfirmacaoHere();},'similarityGroupingId':'MesReferenciaModalPanelSubview:formMesReferencia:bt_confirmar_comp_subs','parameters':{'MesReferenciaModalPanelSubview:formMesReferencia:bt_confirmar_comp_subs':'MesReferenciaModalPanelSubview:formMesReferencia:bt_confirmar_comp_subs'} ,'actionUrl':'/nfse/pages/exibicaoNFS-e.jsf'} );return false;" type="image" src="/nfse/resources/images/bt_confirmar.png" />
+											</td>
+										</tr>
+									</table>
+							</td>
+							</tr>
+						</table><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id3" />
+</form>
+			
+				<p>
+					&nbsp;
+				</p>
+			<!--fim popUp-->
+
+
+			<!-- REFRESH AREA DO PANEL MES DE REFERENCIA --></td></tr></table></div></div></div><div class="dr-mpnl-mask-div dr-mpnl-mask-div-transparent rich-mpnl-mask-div" id="MesReferenciaModalPanelSubview:panelMesReferenciaCursorDiv" style="z-index: -200;"><button class="dr-mpnl-pnl-button" id="MesReferenciaModalPanelSubview:panelMesReferenciaLastHref"></button></div><script type="text/javascript">new ModalPanel('MesReferenciaModalPanelSubview:panelMesReferencia',
+				{
+					width: 405,
+					height: 320,
+
+					minWidth: -1,
+					minHeight: -1,
+
+					resizeable: false,
+					moveable: false,
+
+					left: "auto",
+					top: "auto",
+
+					zindex: 100,onresize: '',onmove: '',onshow: function(event){window.document.getElementById('MesReferenciaModalPanelSubview:formMesReferencia:dtCompetencia').focus();},onhide: '',onbeforeshow: '',onbeforehide: '',
+					domElementAttachment: "",				
+					keepVisualState: false,
+					showWhenRendered: false,
+					selectBehavior: "disable",
+
+					autosized: true});</script></div><script type="text/javascript"></script></div>
+		<script type="text/javascript">
+			</script>
+
+	<!-- FIM MODAL PANEL MES DE REFERENCIA -->
+
+	<!-- *************************** FIM PANELS *************************** -->
+</html><?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+		<!-- Componente Modal Consulta Atividades --><div id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopup" style="display: none;"><input id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupOpenedState" name="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupOpenedState" type="hidden" /><div class="rich-modalpanel popUp" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupContainer" style="position: absolute; display: none; z-index: 100; background-color: inherit;"><div class="dr-mpnl-mask-div dr-mpnl-mask-div-opaque rich-mpnl-mask-div" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupDiv" style="z-index: 1;"><button class="dr-mpnl-pnl-button" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupFirstHref"></button></div><div class="dr-mpnl-panel rich-mpnl_panel"><div id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;"><div class="dr-mpnl-shadow rich-mpnl-shadow" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupShadowDiv"></div><div class=" dr-mpnl-pnl rich-mp-content" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupContentDiv"><table border="0" cellpadding="0" cellspacing="0" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupContentTable" style="width: 543px;height: 414px;"><tr style="height: 99%"><td class="dr-mpnl-pnl-b rich-mpnl-body" valign="top">
+			
+			<div id="tituloModal">
+					Sele&ccedil;&atilde;o de Estabelecimento
+					<a href="#"><img src="/nfse/resources/images/bt_fechar_popup.png" alt="Fechar" border="0" class="fecharModal" onclick="javascript:Richfaces.hideModalPanel('selecionaEmpresaPopup')" />
+					</a>
+				</div>
+				<p>
+					&nbsp;
+				</p>
+<form id="SelecionaEmpresaModalPanelSubview:formPanel" name="SelecionaEmpresaModalPanelSubview:formPanel" method="post" action="/nfse/pages/exibicaoNFS-e.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="SelecionaEmpresaModalPanelSubview:formPanel" value="SelecionaEmpresaModalPanelSubview:formPanel" />
+<span id="SelecionaEmpresaModalPanelSubview:formPanel:panelEmpresas"></span><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id3" />
+</form>
+		
+			<p>
+					&nbsp;
+				</p></td></tr></table></div></div></div><div class="dr-mpnl-mask-div dr-mpnl-mask-div-transparent rich-mpnl-mask-div" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupCursorDiv" style="z-index: -200;"><button class="dr-mpnl-pnl-button" id="SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopupLastHref"></button></div><script type="text/javascript">new ModalPanel('SelecionaEmpresaModalPanelSubview:selecionaEmpresaPopup',
+				{
+					width: 543,
+					height: 414,
+
+					minWidth: -1,
+					minHeight: -1,
+
+					resizeable: false,
+					moveable: false,
+
+					left: "auto",
+					top: "auto",
+
+					zindex: 100,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow: '',onbeforehide: '',
+					domElementAttachment: "",				
+					keepVisualState: false,
+					showWhenRendered: false,
+					selectBehavior: "disable",
+
+					autosized: true});</script></div><script type="text/javascript"></script></div>
+</html>
+			</div>
+		</body>
+</html>
