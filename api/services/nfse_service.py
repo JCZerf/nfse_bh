@@ -10,7 +10,7 @@ from fastapi import HTTPException
 from bot.bhiss_collector import check_source_errors, download_nfse_xml, query_nfse
 from bot.nfse_extractor import extract_nfse_data
 
-from api.metrics import (
+from api.core.metrics import (
     captcha_result_total,
     captcha_solve_duration_seconds,
     nfse_queries_total,

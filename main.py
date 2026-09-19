@@ -7,8 +7,8 @@ from slowapi.middleware import SlowAPIMiddleware
 
 load_dotenv()
 
-from api.exception_handlers import validation_exception_handler
-from api.rate_limit import limiter
+from api.core.exception_handlers import validation_exception_handler
+from api.core.rate_limit import limiter
 from api.routes.health import router as health_router
 from api.routes.metrics import router as metrics_router
 from api.routes.nfse import router as nfse_router

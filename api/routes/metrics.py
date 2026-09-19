@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request, Response
 from prometheus_client import CONTENT_TYPE_LATEST, generate_latest
 
-from api.rate_limit import limiter
+from api.core.rate_limit import limiter
 
 router = APIRouter(tags=["observability"])
 

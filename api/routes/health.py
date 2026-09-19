@@ -3,7 +3,7 @@ from fastapi import APIRouter, Request
 
 from bot.bhiss_collector import BASE_URL, BROWSER_HEADERS
 
-from api.rate_limit import limiter
+from api.core.rate_limit import limiter
 
 router = APIRouter(tags=["observability"])
 
