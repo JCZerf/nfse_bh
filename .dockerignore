@@ -1,0 +1,12 @@
+.env
+.git
+.gitignore
+__pycache__
+*.pyc
+.pytest_cache
+*.egg-info
+tests
+captcha_solver/samples
+captcha_solver/tools
+example.json
+README.md
