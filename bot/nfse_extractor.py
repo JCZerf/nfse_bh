@@ -1,5 +1,5 @@
 import dataclasses
-import xml.etree.ElementTree as ElementTree
+from xml.etree import ElementTree
 
 from bs4 import BeautifulSoup
 

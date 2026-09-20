@@ -7,8 +7,8 @@ import cv2
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from segment_digits import SAMPLES_DIR, segment_image
 from labels import SAMPLE_LABELS
+from segment_digits import SAMPLES_DIR, segment_image
 
 TEMPLATES_DIR = Path(__file__).resolve().parent.parent / "templates"
 AUTO_LABELS_PATH = Path(__file__).parent / "auto_labels.json"

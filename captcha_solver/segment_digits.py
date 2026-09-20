@@ -51,7 +51,7 @@ def box_center_x(box: tuple[int, int, int, int]) -> float:
 def find_digit_boxes(binary: np.ndarray) -> list[tuple[int, int, int, int]]:
     closing_kernel = np.ones((3, 3), np.uint8)
     closed = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, closing_kernel)
-    image_height, image_width = binary.shape
+    _image_height, image_width = binary.shape
     num_labels, _, stats, _ = cv2.connectedComponentsWithStats(closed, connectivity=8)
     boxes = []
     for label in range(1, num_labels):

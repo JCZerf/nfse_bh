@@ -23,6 +23,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "pytest>=9.1.1",
+    "ruff>=0.16.8",
 ]
 
 [tool.setuptools.packages.find]
@@ -31,3 +32,6 @@ namespaces = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110

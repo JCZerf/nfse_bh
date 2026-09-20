@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, Request
 
+from api.core.rate_limit import limiter
 from api.dependencies.auth import verify_api_key
 from api.models.nfse import NfseQueryRequest, NfseQueryResponse
-from api.core.rate_limit import limiter
 from api.services.nfse_service import fetch_nfse_data
 
 router = APIRouter(prefix="/nfse", tags=["nfse"], dependencies=[Depends(verify_api_key)])

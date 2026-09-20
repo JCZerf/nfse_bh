@@ -62,5 +62,5 @@ def test_check_source_errors_not_found():
 
 def test_check_source_errors_unexpected_source_error():
     html = '<h1>Ocorreu um erro inesperado na aplica&ccedil;&atilde;o. Tente realizar a operacao novamente.</h1>'
-    status, message = check_source_errors(html)
+    status, _message = check_source_errors(html)
     assert status == "source_unexpected_error"

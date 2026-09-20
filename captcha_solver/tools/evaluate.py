@@ -4,8 +4,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from classify import classify_digit, load_templates
-from segment_digits import SAMPLES_DIR, segment_image
 from labels import SAMPLE_LABELS
+from segment_digits import SAMPLES_DIR, segment_image
 
 TRAIN_SAMPLE_COUNT = 40
 

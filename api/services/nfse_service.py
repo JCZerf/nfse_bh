@@ -2,13 +2,10 @@ import base64
 import dataclasses
 import time
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import httpx
 from fastapi import HTTPException
-
-from bot.bhiss_collector import check_source_errors, download_nfse_xml, query_nfse
-from bot.nfse_extractor import extract_nfse_data
 
 from api.core.metrics import (
     captcha_result_total,
@@ -23,6 +20,8 @@ from api.models.nfse import (
     QueryMetadata,
     SourceData,
 )
+from bot.bhiss_collector import check_source_errors, download_nfse_xml, query_nfse
+from bot.nfse_extractor import extract_nfse_data
 
 SOURCE_NAME = "BHISS Digital"
 
@@ -57,7 +56,7 @@ async def fetch_nfse_data(payload: NfseQueryRequest) -> NfseQueryResponse:
 
 
 async def _query_and_extract(payload: NfseQueryRequest, request_id: str) -> NfseQueryResponse:
-    timestamp = datetime.now(timezone.utc)
+    timestamp = datetime.now(UTC)
 
     async with httpx.AsyncClient() as client:
         query_result = await query_nfse(

@@ -1,10 +1,9 @@
 import httpx
 from fastapi import APIRouter, Request
 
-from bot.bhiss_collector import BASE_URL, BROWSER_HEADERS
-
 from api.core.http_client import get_http_client
 from api.core.rate_limit import limiter
+from bot.bhiss_collector import BASE_URL, BROWSER_HEADERS
 
 router = APIRouter(tags=["observability"])
 
