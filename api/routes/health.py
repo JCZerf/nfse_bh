@@ -3,6 +3,7 @@ from fastapi import APIRouter, Request
 
 from bot.bhiss_collector import BASE_URL, BROWSER_HEADERS
 
+from api.core.http_client import get_http_client
 from api.core.rate_limit import limiter
 
 router = APIRouter(tags=["observability"])
@@ -13,9 +14,11 @@ router = APIRouter(tags=["observability"])
 async def health(request: Request) -> dict:
     bhiss_status = "ok"
     try:
-        async with httpx.AsyncClient(timeout=5.0, follow_redirects=True) as client:
-            response = await client.get(BASE_URL, headers=BROWSER_HEADERS)
-            response.raise_for_status()
+        client = get_http_client(request.app.state)
+        response = await client.get(
+            BASE_URL, headers=BROWSER_HEADERS, timeout=5.0, follow_redirects=True
+        )
+        response.raise_for_status()
     except httpx.HTTPError:
         bhiss_status = "down"
 

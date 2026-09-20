@@ -27,9 +27,6 @@ def _normalize_whitespace(text: str) -> str:
 
 
 def _build_html_label_index(soup: BeautifulSoup) -> dict[str, str]:
-    """Mapeia rotulo normalizado -> valor, percorrendo a arvore do HTML uma unica vez
-    em vez de um scan completo por campo (subTitulo/valor sao poucos, mas nao ha razao
-    pra refazer a mesma busca N vezes)."""
     index: dict[str, str] = {}
     for label_span in soup.find_all("span", class_="subTitulo"):
         label_text = label_span.get_text()

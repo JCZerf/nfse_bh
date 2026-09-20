@@ -57,7 +57,6 @@ def extract_view_state(page_html: str) -> str:
 
 
 def check_source_errors(response_text: str) -> tuple[str, str] | None:
-    """Extrai (status, mensagem) de um erro conhecido reportado pela fonte, ou None se nao houver."""
     if SESSION_EXPIRED_MARKER in response_text:
         return "session_expired", "Sessao expirada"
 

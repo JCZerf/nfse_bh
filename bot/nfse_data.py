@@ -6,7 +6,6 @@ XML_NS = {"n": "http://www.abrasf.org.br/nfse.xsd"}
 
 @dataclass
 class NfseData:
-    # Nota
     nfse_number: Optional[str] = field(
         default=None,
         metadata={"origin": "xml", "path": "n:Nfse/n:InfNfse/n:Numero"},
@@ -36,7 +35,6 @@ class NfseData:
         metadata={"origin": "xml", "path": "n:Nfse/n:InfNfse/n:IdentificacaoRps/n:Tipo"},
     )
 
-    # Servico
     service_description: Optional[str] = field(
         default=None,
         metadata={"origin": "xml", "path": "n:Nfse/n:InfNfse/n:Servico/n:Discriminacao"},
@@ -74,7 +72,6 @@ class NfseData:
         metadata={"origin": "html", "path": "Cod/Município da incidência do ISSQN:"},
     )
 
-    # Valores
     service_value: Optional[str] = field(
         default=None,
         metadata={"origin": "xml", "path": "n:Nfse/n:InfNfse/n:Servico/n:Valores/n:ValorServicos"},
@@ -136,7 +133,6 @@ class NfseData:
         metadata={"origin": "xml", "path": "n:Nfse/n:InfNfse/n:Servico/n:Valores/n:DescontoCondicionado"},
     )
 
-    # Prestador
     provider_cnpj: Optional[str] = field(
         default=None,
         metadata={"origin": "xml", "path": "n:Nfse/n:InfNfse/n:PrestadorServico/n:IdentificacaoPrestador/n:Cnpj"},
@@ -189,7 +185,6 @@ class NfseData:
         metadata={"origin": "xml", "path": "n:Nfse/n:InfNfse/n:PrestadorServico/n:Contato/n:Email"},
     )
 
-    # Tomador
     taker_document: Optional[str] = field(
         default=None,
         metadata={
@@ -238,7 +233,6 @@ class NfseData:
         metadata={"origin": "xml", "path": "n:Nfse/n:InfNfse/n:TomadorServico/n:Contato/n:Email"},
     )
 
-    # Orgao gerador
     issuing_municipality_code: Optional[str] = field(
         default=None,
         metadata={"origin": "xml", "path": "n:Nfse/n:InfNfse/n:OrgaoGerador/n:CodigoMunicipio"},

@@ -1,3 +1,6 @@
+from contextlib import asynccontextmanager
+
+import httpx
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.exceptions import RequestValidationError
@@ -13,7 +16,15 @@ from api.routes.health import router as health_router
 from api.routes.metrics import router as metrics_router
 from api.routes.nfse import router as nfse_router
 
-app = FastAPI(title="NFS-e BH Collector")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    app.state.http_client = httpx.AsyncClient()
+    yield
+    await app.state.http_client.aclose()
+
+
+app = FastAPI(title="NFS-e BH Collector", lifespan=lifespan)
 app.state.limiter = limiter
 app.add_middleware(SlowAPIMiddleware)
 app.include_router(nfse_router)
