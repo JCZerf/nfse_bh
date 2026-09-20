@@ -1,36 +1,34 @@
 import json
-import shutil
 import sys
+from collections import Counter
 from pathlib import Path
 
-import cv2
+import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from auto_label import CONFIDENCE_THRESHOLD
-from labels import SAMPLE_LABELS
+from labels import HELD_OUT_SAMPLES, SAMPLE_LABELS, TRAIN_SAMPLES, VERIFIED_CORRECTIONS
 from segment_digits import SAMPLES_DIR, segment_image
 
-TEMPLATES_DIR = Path(__file__).resolve().parent.parent / "templates"
+TEMPLATES_PATH = Path(__file__).resolve().parent.parent / "templates.npz"
 AUTO_LABELS_PATH = Path(__file__).parent / "auto_labels.json"
-
-HELD_OUT_TEST_SAMPLES = set(sorted(SAMPLE_LABELS.keys())[40:])
-KNOWN_TRAIN_SAMPLES = set(sorted(SAMPLE_LABELS.keys())[:40])
 
 
 def build_templates() -> None:
-    shutil.rmtree(TEMPLATES_DIR, ignore_errors=True)
-    for digit_char in "0123456789":
-        (TEMPLATES_DIR / digit_char).mkdir(parents=True, exist_ok=True)
-
     auto_labels = json.loads(AUTO_LABELS_PATH.read_text())
 
+    crops_list: list[np.ndarray] = []
+    labels_list: list[int] = []
     used = 0
     skipped_low_confidence = 0
+
     for sample_name, info in auto_labels.items():
-        if sample_name in HELD_OUT_TEST_SAMPLES:
+        if sample_name in HELD_OUT_SAMPLES:
             continue
-        if sample_name in KNOWN_TRAIN_SAMPLES:
+        if sample_name in VERIFIED_CORRECTIONS:
+            label = VERIFIED_CORRECTIONS[sample_name]
+        elif sample_name in TRAIN_SAMPLES:
             label = SAMPLE_LABELS[sample_name]
         else:
             if info["confidence"] < CONFIDENCE_THRESHOLD:
@@ -40,20 +38,27 @@ def build_templates() -> None:
         if len(label) != 5:
             continue
 
-        sample_path = SAMPLES_DIR / f"{sample_name}.jpg"
-        crops = segment_image(sample_path)
-        for position, (digit_char, crop) in enumerate(zip(label, crops)):
-            output_path = TEMPLATES_DIR / digit_char / f"{sample_name}_digit{position}.png"
-            cv2.imwrite(str(output_path), crop)
+        crops = segment_image(SAMPLES_DIR / f"{sample_name}.jpg")
+        if len(crops) != 5:
+            continue
+        for digit_char, crop in zip(label, crops):
+            crops_list.append(crop)
+            labels_list.append(int(digit_char))
         used += 1
 
+    np.savez_compressed(
+        TEMPLATES_PATH,
+        crops=np.stack(crops_list),
+        labels=np.array(labels_list, dtype=np.uint8),
+    )
+
     print(
-        f"Amostras usadas para templates: {used} (excluindo {len(HELD_OUT_TEST_SAMPLES)} "
+        f"Amostras usadas para templates: {used} (excluindo {len(HELD_OUT_SAMPLES)} "
         f"reservadas para teste, {skipped_low_confidence} puladas por baixa confianca)"
     )
-    for digit_char in "0123456789":
-        count = len(list((TEMPLATES_DIR / digit_char).glob("*.png")))
-        print(f"digito {digit_char}: {count} templates")
+    counts = Counter(labels_list)
+    for digit in range(10):
+        print(f"digito {digit}: {counts[digit]} templates")
 
 
 if __name__ == "__main__":

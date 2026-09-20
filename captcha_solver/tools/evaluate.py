@@ -4,15 +4,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from classify import classify_digit, load_templates
-from labels import SAMPLE_LABELS
+from labels import HELD_OUT_SAMPLES, SAMPLE_LABELS
 from segment_digits import SAMPLES_DIR, segment_image
-
-TRAIN_SAMPLE_COUNT = 40
 
 
 def evaluate() -> None:
-    sample_names = sorted(SAMPLE_LABELS.keys())
-    test_samples = sample_names[TRAIN_SAMPLE_COUNT:]
+    test_samples = sorted(HELD_OUT_SAMPLES)
     templates = load_templates()
 
     correct_digits = 0

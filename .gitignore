@@ -4,3 +4,7 @@ __pycache__/
 .env
 *.egg-info/
 .ruff_cache/
+captcha_solver/samples/
+captcha_solver/tools/auto_labels.json
+captcha_solver/tools/disagreements.json
+captcha_solver/tools/review/
