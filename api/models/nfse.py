@@ -12,6 +12,12 @@ class NfseQueryRequest(BaseModel):
     nfse_number: str = Field(pattern=NFSE_NUMBER_PATTERN)
     verification_code: str = Field(pattern=VERIFICATION_CODE_PATTERN)
 
+    @field_validator("provider_cnpj")
+    @classmethod
+    def normalize_provider_cnpj(cls, value: str) -> str:
+        digits = "".join(char for char in value if char.isdigit())
+        return f"{digits[0:2]}.{digits[2:5]}.{digits[5:8]}/{digits[8:12]}-{digits[12:14]}"
+
     @field_validator("nfse_number")
     @classmethod
     def normalize_nfse_number(cls, value: str) -> str:

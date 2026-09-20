@@ -13,13 +13,13 @@ def test_valid_payload_with_formatted_cnpj():
     assert request.provider_cnpj == "35.142.610/0001-04"
 
 
-def test_valid_payload_with_unformatted_cnpj():
+def test_unformatted_cnpj_is_normalized_to_punctuated_form():
     request = NfseQueryRequest(
         provider_cnpj="35142610000104",
         nfse_number="118",
         verification_code="aaaa1111",
     )
-    assert request.nfse_number == "118"
+    assert request.provider_cnpj == "35.142.610/0001-04"
 
 
 def test_nfse_number_natural_format_is_normalized_to_canonical():
