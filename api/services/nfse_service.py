@@ -31,7 +31,10 @@ SOURCE_ERROR_STATUS_CODES = {
     "missing_field": 422,
     "captcha_rejected": 502,
     "session_expired": 502,
+    "source_unexpected_error": 502,
 }
+
+CAPTCHA_RESULT_UNKNOWN_STATUSES = {"source_unexpected_error"}
 
 
 async def fetch_nfse_data(payload: NfseQueryRequest, client: httpx.AsyncClient) -> NfseQueryResponse:
@@ -71,9 +74,10 @@ async def _query_and_extract(
     source_error = check_source_errors(exibicao_html)
     if source_error is not None:
         status, message = source_error
-        captcha_result_total.labels(
-            result="rejected" if status == "captcha_rejected" else "accepted"
-        ).inc()
+        if status not in CAPTCHA_RESULT_UNKNOWN_STATUSES:
+            captcha_result_total.labels(
+                result="rejected" if status == "captcha_rejected" else "accepted"
+            ).inc()
         raise HTTPException(
             status_code=SOURCE_ERROR_STATUS_CODES.get(status, 502),
             detail={"source": SOURCE_NAME, "message": message},

@@ -31,6 +31,7 @@ FIELD_ERROR_PATTERN = re.compile(r'class="mensagenserro">([^<]+)</li>')
 NOT_FOUND_PATTERN = re.compile(r'style="alerta">([^<]+)</li>')
 SESSION_EXPIRED_MARKER = "Sess&atilde;o Expirada"
 CAPTCHA_ERROR_MARKER = "imagem de seguran"
+UNEXPECTED_ERROR_MARKER = "Ocorreu um erro inesperado na aplica"
 
 BROWSER_HEADERS = {
     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
@@ -70,6 +71,9 @@ def check_source_errors(response_text: str) -> tuple[str, str] | None:
     not_found_match = NOT_FOUND_PATTERN.search(response_text)
     if not_found_match:
         return "not_found", html.unescape(not_found_match.group(1)).strip()
+
+    if UNEXPECTED_ERROR_MARKER in response_text:
+        return "source_unexpected_error", "Ocorreu um erro inesperado na aplicacao. Tente realizar a operacao novamente."
 
     return None
 

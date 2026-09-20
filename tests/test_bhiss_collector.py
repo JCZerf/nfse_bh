@@ -58,3 +58,9 @@ def test_check_source_errors_not_found():
     status, message = check_source_errors(html)
     assert status == "not_found"
     assert "não localizou" in message
+
+
+def test_check_source_errors_unexpected_source_error():
+    html = '<h1>Ocorreu um erro inesperado na aplica&ccedil;&atilde;o. Tente realizar a operacao novamente.</h1>'
+    status, message = check_source_errors(html)
+    assert status == "source_unexpected_error"
