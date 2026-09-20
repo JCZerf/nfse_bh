@@ -46,31 +46,31 @@ Fluxo que o restante do sistema (`bot/bhiss_collector.py`) chama:
 Testado em 10 amostras reservadas fora do conjunto de templates (nunca usadas
 para gerar ou pré-rotular templates): **10/10 por dígito e por captcha
 completo**. Com n=10 isso não é uma métrica estatisticamente forte (o
-intervalo de confiança em cima de "10/10" é largo) — a validação que de fato
+intervalo de confiança em cima de "10/10" é largo). A validação que de fato
 importa é a cruzada (`tools/cross_validate.py`) rodada sobre milhares de
 amostras auto-rotuladas, que encontrou e corrigiu ~50 rótulos errados durante
 a curadoria (ver seção abaixo).
 
 ### Banco de templates
 
-`templates.npz` é o único artefato que o runtime carrega — um array `crops`
+`templates.npz` é o único artefato que o runtime carrega: um array `crops`
 (uint8, 20x30 por recorte) e um array paralelo `labels` (uint8, 0-9),
 compactados com `np.savez_compressed`. Hoje tem ~24.700 recortes gerados a
 partir de ~5.000 captchas coletados do site.
 
-Não existe mais um diretório `templates/` com um PNG por recorte — essa
+Não existe mais um diretório `templates/` com um PNG por recorte. Essa
 representação foi usada durante a fase de curadoria manual (é mais fácil
 abrir/mover um arquivo do que editar uma linha de um array), mas uma vez que
 o banco estabilizou, o formato de trabalho migrou para o único artefato
 binário que o runtime de fato consome. Qualquer correção de rótulo passa a
 ser feita em `tools/labels.py` e aplicada com `tools/build_templates.py`.
 
-### Fase de preparação (offline — ver `tools/`)
+### Fase de preparação (offline, ver `tools/`)
 
 ```
 1. tools/collect_samples.py
    -> baixa N imagens de captcha.jpg do site (requisicoes concorrentes)
-   -> salva em samples/ (fora do git — ver .gitignore; regeneravel a qualquer
+   -> salva em samples/ (fora do git; ver .gitignore; regeneravel a qualquer
       momento, entao nao ha motivo pra versionar dado bruto)
 
 2. tools/auto_label.py
@@ -110,8 +110,8 @@ ser feita em `tools/labels.py` e aplicada com `tools/build_templates.py`.
 Esse pipeline existe porque o banco é majoritariamente auto-rotulado: das
 ~4.900 amostras usadas hoje, só 40 tiveram rótulo 100% humano desde o início.
 Confiar cegamente no auto-rótulo cria risco de autorreforço (um erro vira
-template, o template classifica errado de novo, o erro se consolida) — por
-isso o corte por confiança e a validação cruzada com um classificador
+template, o template classifica errado de novo, o erro se consolida). Por isso,
+o corte por confiança e a validação cruzada com um classificador
 propositalmente mais fraco e isolado do banco de produção.
 
 ## Estrutura

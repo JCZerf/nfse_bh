@@ -153,7 +153,11 @@ Resposta (resumida):
       "source_url": "https://bhissdigital.pbh.gov.br/nfse/pages/exibicaoNFS-e.jsf",
       "fields": [
         { "name": "nfse_number", "origin": "xml", "value": "202000000010823" },
-        { "name": "service_item_description", "origin": "html", "value": "Agenciamento, organizacao..." }
+        {
+          "name": "service_item_description",
+          "origin": "html",
+          "value": "Agenciamento, organizacao..."
+        }
       ],
       "xml_base64": "..."
     }
@@ -184,10 +188,10 @@ pytest
 ruff check .
 ```
 
-Os testes usam fixtures locais — XML/HTML sintéticos pra extração de dados,
-e imagens de captcha reais (sem nenhuma informação sensível) pro solver —,
-não dependem de rede nem do site real. O CI (GitHub Actions) roda os dois em
-todo push/PR pra `main`.
+Os testes usam fixtures locais, com XML/HTML sintéticos para extração de dados
+e imagens de captcha reais, sem nenhuma informação sensível, para o solver.
+Eles não dependem de rede nem do site real. O CI (GitHub Actions) roda os dois em
+todo push/PR para `main`.
 
 ## Licença
 
