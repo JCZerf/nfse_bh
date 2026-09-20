@@ -2,7 +2,6 @@ from fastapi import APIRouter, Depends, Request
 
 from api.dependencies.auth import verify_api_key
 from api.models.nfse import NfseQueryRequest, NfseQueryResponse
-from api.core.http_client import get_http_client
 from api.core.rate_limit import limiter
 from api.services.nfse_service import fetch_nfse_data
 
@@ -12,5 +11,4 @@ router = APIRouter(prefix="/nfse", tags=["nfse"], dependencies=[Depends(verify_a
 @router.post("/validation", response_model=NfseQueryResponse)
 @limiter.limit("30/minute")
 async def validate_nfse(request: Request, payload: NfseQueryRequest) -> NfseQueryResponse:
-    client = get_http_client(request.app.state)
-    return await fetch_nfse_data(payload, client)
+    return await fetch_nfse_data(payload)
