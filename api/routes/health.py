@@ -1,16 +1,22 @@
 import httpx
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Depends, Request
 
 from api.core.http_client import get_http_client
 from api.core.rate_limit import limiter
+from api.dependencies.auth import verify_api_key
 from bot.bhiss_collector import BASE_URL, BROWSER_HEADERS
 
 router = APIRouter(tags=["observability"])
 
 
 @router.get("/health")
+async def health() -> dict:
+    return {"status": "ok"}
+
+
+@router.get("/health/deep", dependencies=[Depends(verify_api_key)])
 @limiter.limit("30/minute")
-async def health(request: Request) -> dict:
+async def deep_health(request: Request) -> dict:
     bhiss_status = "ok"
     try:
         client = get_http_client(request.app.state)

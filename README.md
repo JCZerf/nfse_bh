@@ -110,7 +110,13 @@ clientes deverão enviar no header `X-API-Key`:
 
 ```
 API_KEY=uma-chave-secreta-qualquer
+MAX_CONCURRENT_NFSE_QUERIES=5
+NFSE_HTTP_TIMEOUT_SECONDS=30
 ```
+
+`MAX_CONCURRENT_NFSE_QUERIES` limita quantas consultas reais ao BHISS podem
+rodar ao mesmo tempo em cada processo da API. `NFSE_HTTP_TIMEOUT_SECONDS`
+define o timeout das chamadas externas feitas durante a consulta.
 
 ## Rodando a API
 
@@ -178,8 +184,9 @@ Erro da fonte (nota não encontrada, captcha rejeitado, etc):
 
 ### Outras rotas
 
-- `GET /health`: status da API + conectividade real com o BHISS.
-- `GET /metrics`: métricas no formato Prometheus.
+- `GET /health`: status local da API, sem chamada externa.
+- `GET /health/deep`: status da API + conectividade real com o BHISS. Requer `X-API-Key`.
+- `GET /metrics`: métricas no formato Prometheus. Requer `X-API-Key`.
 
 ## Testes e lint
 
