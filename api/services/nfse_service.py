@@ -68,32 +68,31 @@ async def _query_and_extract(payload: NfseQueryRequest, request_id: str) -> Nfse
     # real). O client compartilhado em api/core/http_client.py existe só
     # para o /health, que faz uma única chamada stateless.
     timeout = httpx.Timeout(NFSE_HTTP_TIMEOUT_SECONDS)
-    async with nfse_query_semaphore:
-        async with httpx.AsyncClient(timeout=timeout) as client:
-            query_result = await query_nfse(
-                client,
-                payload.provider_cnpj,
-                payload.nfse_number,
-                payload.verification_code,
-                request_id,
+    async with nfse_query_semaphore, httpx.AsyncClient(timeout=timeout) as client:
+        query_result = await query_nfse(
+            client,
+            payload.provider_cnpj,
+            payload.nfse_number,
+            payload.verification_code,
+            request_id,
+        )
+        captcha_solve_duration_seconds.observe(query_result.captcha_duration_seconds)
+        exibicao_html = query_result.response.text
+
+        source_error = check_source_errors(exibicao_html)
+        if source_error is not None:
+            status, message = source_error
+            if status not in CAPTCHA_RESULT_UNKNOWN_STATUSES:
+                captcha_result_total.labels(
+                    result="rejected" if status == "captcha_rejected" else "accepted"
+                ).inc()
+            raise HTTPException(
+                status_code=SOURCE_ERROR_STATUS_CODES.get(status, 502),
+                detail={"source": SOURCE_NAME, "message": message},
             )
-            captcha_solve_duration_seconds.observe(query_result.captcha_duration_seconds)
-            exibicao_html = query_result.response.text
+        captcha_result_total.labels(result="accepted").inc()
 
-            source_error = check_source_errors(exibicao_html)
-            if source_error is not None:
-                status, message = source_error
-                if status not in CAPTCHA_RESULT_UNKNOWN_STATUSES:
-                    captcha_result_total.labels(
-                        result="rejected" if status == "captcha_rejected" else "accepted"
-                    ).inc()
-                raise HTTPException(
-                    status_code=SOURCE_ERROR_STATUS_CODES.get(status, 502),
-                    detail={"source": SOURCE_NAME, "message": message},
-                )
-            captcha_result_total.labels(result="accepted").inc()
-
-            xml_text = await download_nfse_xml(client, exibicao_html, request_id)
+        xml_text = await download_nfse_xml(client, exibicao_html, request_id)
 
     nfse_data = extract_nfse_data(xml_text, exibicao_html)
     fields = [
