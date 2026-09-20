@@ -7,6 +7,7 @@ import cv2
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from auto_label import CONFIDENCE_THRESHOLD
 from labels import SAMPLE_LABELS
 from segment_digits import SAMPLES_DIR, segment_image
 
@@ -25,10 +26,17 @@ def build_templates() -> None:
     auto_labels = json.loads(AUTO_LABELS_PATH.read_text())
 
     used = 0
+    skipped_low_confidence = 0
     for sample_name, info in auto_labels.items():
         if sample_name in HELD_OUT_TEST_SAMPLES:
             continue
-        label = SAMPLE_LABELS[sample_name] if sample_name in KNOWN_TRAIN_SAMPLES else info["label"]
+        if sample_name in KNOWN_TRAIN_SAMPLES:
+            label = SAMPLE_LABELS[sample_name]
+        else:
+            if info["confidence"] < CONFIDENCE_THRESHOLD:
+                skipped_low_confidence += 1
+                continue
+            label = info["label"]
         if len(label) != 5:
             continue
 
@@ -39,7 +47,10 @@ def build_templates() -> None:
             cv2.imwrite(str(output_path), crop)
         used += 1
 
-    print(f"Amostras usadas para templates: {used} (excluindo {len(HELD_OUT_TEST_SAMPLES)} reservadas para teste)")
+    print(
+        f"Amostras usadas para templates: {used} (excluindo {len(HELD_OUT_TEST_SAMPLES)} "
+        f"reservadas para teste, {skipped_low_confidence} puladas por baixa confianca)"
+    )
     for digit_char in "0123456789":
         count = len(list((TEMPLATES_DIR / digit_char).glob("*.png")))
         print(f"digito {digit_char}: {count} templates")
