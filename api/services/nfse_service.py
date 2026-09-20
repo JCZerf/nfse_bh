@@ -1,4 +1,3 @@
-import asyncio
 import base64
 import dataclasses
 import time
@@ -14,7 +13,7 @@ from api.core.metrics import (
     nfse_queries_total,
     nfse_query_duration_seconds,
 )
-from api.core.settings import MAX_CONCURRENT_NFSE_QUERIES, NFSE_HTTP_TIMEOUT_SECONDS
+from api.core.settings import NFSE_HTTP_TIMEOUT_SECONDS
 from api.models.nfse import (
     ExtractedField,
     NfseQueryRequest,
@@ -36,8 +35,6 @@ SOURCE_ERROR_STATUS_CODES = {
 }
 
 CAPTCHA_RESULT_UNKNOWN_STATUSES = {"source_unexpected_error"}
-
-nfse_query_semaphore = asyncio.Semaphore(MAX_CONCURRENT_NFSE_QUERIES)
 
 
 async def fetch_nfse_data(payload: NfseQueryRequest) -> NfseQueryResponse:
@@ -68,7 +65,7 @@ async def _query_and_extract(payload: NfseQueryRequest, request_id: str) -> Nfse
     # real). O client compartilhado em api/core/http_client.py existe só
     # para o /health, que faz uma única chamada stateless.
     timeout = httpx.Timeout(NFSE_HTTP_TIMEOUT_SECONDS)
-    async with nfse_query_semaphore, httpx.AsyncClient(timeout=timeout) as client:
+    async with httpx.AsyncClient(timeout=timeout) as client:
         query_result = await query_nfse(
             client,
             payload.provider_cnpj,
