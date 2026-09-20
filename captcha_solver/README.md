@@ -44,8 +44,12 @@ Fluxo que o restante do sistema (`bot/bhiss_collector.py`) chama:
 ```
 
 Testado em 10 amostras reservadas fora do conjunto de templates (nunca usadas
-para gerar ou pré-rotular templates): **100% de acerto por dígito e por
-captcha completo**.
+para gerar ou pré-rotular templates): **10/10 por dígito e por captcha
+completo**. Com n=10 isso não é uma métrica estatisticamente forte (o
+intervalo de confiança em cima de "10/10" é largo) — a validação que de fato
+importa é a cruzada (`tools/cross_validate.py`) rodada sobre milhares de
+amostras auto-rotuladas, que encontrou e corrigiu ~50 rótulos errados durante
+a curadoria (ver seção abaixo).
 
 ### Banco de templates
 
@@ -118,7 +122,9 @@ captcha_solver/
 ├── classify.py          # classificacao: recorte -> digito (matriz vetorizada)
 ├── solver.py             # orquestra segment_digits + classify pro runtime
 ├── templates.npz          # banco de templates (unico artefato versionado)
-├── samples/                # captchas brutos coletados (fora do git)
+├── samples/                # captchas brutos coletados (fora do git, exceto
+│                             # as 10 amostras de HELD_OUT_SAMPLES, que os
+│                             # testes precisam)
 └── tools/                   # scripts de manutencao, nao fazem parte do runtime
     ├── collect_samples.py
     ├── auto_label.py

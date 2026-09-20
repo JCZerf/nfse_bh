@@ -32,17 +32,20 @@ Cliente --(POST /nfse/validation)--> API (FastAPI)
 ```
 
 Nenhuma etapa depende de navegador (Playwright/Selenium) ou de serviço de
-OCR de terceiros — a consulta inteira roda com `httpx` async e o captcha é
+OCR de terceiros. A consulta inteira roda com `httpx` async e o captcha é
 resolvido localmente.
 
 ## Destaques técnicos
 
 - **Captcha resolvido sem OCR de terceiros**: segmentação por visão
-  computacional (OpenCV) + template matching vetorizado (numpy/BLAS).
-  100% de acerto no conjunto de teste reservado, poucos milissegundos por
-  captcha. Detalhes em [`captcha_solver/README.md`](captcha_solver/README.md).
+  computacional (OpenCV) + template matching vetorizado (numpy/BLAS), poucos
+  milissegundos por captcha. Acerta as 10 amostras do conjunto de teste
+  reservado, mas esse conjunto é pequeno demais pra ser uma métrica forte.
+  O sinal real é curadoria manual + validação cruzada num banco de ~24.700
+  templates, que já encontrou e corrigiu ~50 rótulos errados. Detalhes em
+  [`captcha_solver/README.md`](captcha_solver/README.md).
 - **Sessão JSF reversa manualmente**: o portal usa RichFaces/JSF com
-  `ViewState` dinâmico por sessão — descoberto via engenharia reversa do
+  `ViewState` dinâmico por sessão, descoberto via engenharia reversa do
   fluxo real do site, sem depender de nenhum SDK oficial. Cada consulta usa
   seu próprio `httpx.AsyncClient` isolado: compartilhar um client entre
   consultas concorrentes corrompe o cookie de sessão de ambas (confirmado
@@ -81,7 +84,7 @@ bot/
 ├── nfse_data.py                  # schema da NFS-e (path XML/HTML por campo)
 └── nfse_extractor.py             # popula o schema a partir do XML + HTML
 captcha_solver/                    # modulo de resolucao de captcha (ver seu README)
-tests/                              # suite pytest (fixtures com dados sinteticos)
+tests/                              # suite pytest (fixtures locais, sem rede)
 ```
 
 ## Requisitos
@@ -135,7 +138,7 @@ curl -X POST http://localhost:8000/nfse/validation \
 ```
 
 `provider_cnpj` e `nfse_number` aceitam tanto o formato "natural" (com
-pontuação / `ano/sequencial`, como na própria nota) quanto o formato limpo —
+pontuação / `ano/sequencial`, como na própria nota) quanto o formato limpo;
 a API normaliza internamente para o que a fonte exige.
 
 Resposta (resumida):
@@ -146,6 +149,8 @@ Resposta (resumida):
     "request_id": "aedf0070",
     "timestamp": "2026-09-19T22:43:40.702380Z",
     "source_data": {
+      "source": "BHISS Digital",
+      "source_url": "https://bhissdigital.pbh.gov.br/nfse/pages/exibicaoNFS-e.jsf",
       "fields": [
         { "name": "nfse_number", "origin": "xml", "value": "202000000010823" },
         { "name": "service_item_description", "origin": "html", "value": "Agenciamento, organizacao..." }
@@ -169,8 +174,8 @@ Erro da fonte (nota não encontrada, captcha rejeitado, etc):
 
 ### Outras rotas
 
-- `GET /health` — status da API + conectividade real com o BHISS.
-- `GET /metrics` — métricas no formato Prometheus.
+- `GET /health`: status da API + conectividade real com o BHISS.
+- `GET /metrics`: métricas no formato Prometheus.
 
 ## Testes e lint
 
@@ -179,9 +184,10 @@ pytest
 ruff check .
 ```
 
-Os testes usam fixtures locais com dados sintéticos — não dependem de rede
-nem do site real. O CI (GitHub Actions) roda os dois em todo push/PR pra
-`main`.
+Os testes usam fixtures locais — XML/HTML sintéticos pra extração de dados,
+e imagens de captcha reais (sem nenhuma informação sensível) pro solver —,
+não dependem de rede nem do site real. O CI (GitHub Actions) roda os dois em
+todo push/PR pra `main`.
 
 ## Licença
 

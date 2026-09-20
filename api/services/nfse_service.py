@@ -20,7 +20,7 @@ from api.models.nfse import (
     QueryMetadata,
     SourceData,
 )
-from bot.bhiss_collector import check_source_errors, download_nfse_xml, query_nfse
+from bot.bhiss_collector import EXIBICAO_PAGE_URL, check_source_errors, download_nfse_xml, query_nfse
 from bot.nfse_extractor import extract_nfse_data
 
 SOURCE_NAME = "BHISS Digital"
@@ -58,6 +58,11 @@ async def fetch_nfse_data(payload: NfseQueryRequest) -> NfseQueryResponse:
 async def _query_and_extract(payload: NfseQueryRequest, request_id: str) -> NfseQueryResponse:
     timestamp = datetime.now(UTC)
 
+    # Client isolado por requisição, de propósito: a sessão JSF do BHISS é
+    # amarrada ao cookie jar, e compartilhar um client entre consultas
+    # concorrentes corrompe a sessão de ambas (confirmado contra o site
+    # real). O client compartilhado em api/core/http_client.py existe só
+    # para o /health, que faz uma única chamada stateless.
     async with httpx.AsyncClient() as client:
         query_result = await query_nfse(
             client,
@@ -99,6 +104,11 @@ async def _query_and_extract(payload: NfseQueryRequest, request_id: str) -> Nfse
         metadata=QueryMetadata(
             request_id=request_id,
             timestamp=timestamp,
-            source_data=SourceData(fields=fields, xml_base64=xml_base64),
+            source_data=SourceData(
+                source=SOURCE_NAME,
+                source_url=EXIBICAO_PAGE_URL,
+                fields=fields,
+                xml_base64=xml_base64,
+            ),
         )
     )

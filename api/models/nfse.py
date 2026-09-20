@@ -34,6 +34,8 @@ class ExtractedField(BaseModel):
 
 
 class SourceData(BaseModel):
+    source: str
+    source_url: str
     fields: list[ExtractedField]
     xml_base64: str
 
